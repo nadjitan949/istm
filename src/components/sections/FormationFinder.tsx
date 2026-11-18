@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { School, GraduationCap, Briefcase, Mail } from "lucide-react";
 import { motion } from "framer-motion";
@@ -56,22 +55,16 @@ export const FormationFinder = () => {
                 transition={{ duration: 0.5 }}
                 key={f.href}
               >
-                <Link href={f.href}>
-                  <div className="bg-white border border-istm-200 rounded-xl p-8 text-center hover:bg-istm-50 hover:border-istm-600 transition-all">
-                    <div className="w-12 h-12 rounded-lg bg-istm-100 text-istm-600 flex items-center justify-center mx-auto mb-6">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-lg font-bold text-istm-900 mb-2">
-                      {f.label}
-                    </h3>
-                    <p className="text-sm text-istm-600 mb-6">
-                      {f.description}
-                    </p>
-                    <Button variant="outline" size="sm" asChild>
-                      Découvrir
-                    </Button>
+                <div className="rounded-xl border border-istm-200 bg-white p-8 text-center transition-all hover:border-istm-600 hover:bg-istm-50">
+                  <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-istm-100 text-istm-600">
+                    <Icon className="h-6 w-6" />
                   </div>
-                </Link>
+                  <h3 className="mb-2 text-lg font-bold text-istm-900">{f.label}</h3>
+                  <p className="mb-6 text-sm text-istm-600">{f.description}</p>
+                  <Button variant="outline" size="sm" href={f.href}>
+                    Découvrir
+                  </Button>
+                </div>
               </motion.div>
             );
           })}

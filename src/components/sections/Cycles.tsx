@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import { images } from "@/data/images";
@@ -61,17 +60,13 @@ export const Cycles = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-istm-600/80 via-transparent to-transparent" />
               </div>
               <div className="p-6">
-                <Link href={c.href}>
-                  <h3 className="text-xl font-bold text-istm-900 mb-2 group-hover:text-red-600 transition-colors">
-                    {c.title}
-                  </h3>
-                </Link>
+                <h3 className="text-xl font-bold text-istm-900 mb-2 group-hover:text-red-600 transition-colors">
+                  {c.title}
+                </h3>
                 <p className="text-sm text-istm-600 mb-6">{c.description}</p>
-                <Link href={c.href}>
-                  <Button variant="outline" size="sm" asChild>
-                    <ArrowRight className="h-4 w-4 mr-1" /> En savoir plus
-                  </Button>
-                </Link>
+                <Button variant="outline" size="sm" href={c.href}>
+                  <ArrowRight className="mr-1 h-4 w-4" /> En savoir plus
+                </Button>
               </div>
             </div>
           ))}

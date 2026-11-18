@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { getFiliereBySlug } from "@/data/filieres";
 
@@ -5,12 +6,13 @@ export const metadata = {
   title: "Filière - ISTM",
 };
 
-export default function FilierePage({
+export default async function FilierePage({
   params,
 }: {
-  params: { diplome: string; slug: string };
+  params: Promise<{ diplome: string; slug: string }>;
 }) {
-  const filiere = getFiliereBySlug(params.diplome, params.slug);
+  const { diplome, slug } = await params;
+  const filiere = getFiliereBySlug(diplome, slug);
 
   if (!filiere) {
     return (
@@ -37,11 +39,12 @@ export default function FilierePage({
             </div>
           </div>
           <div className="w-full md:w-80 hidden md:block">
-            <img
+            <Image
               src={filiere.image}
               alt={filiere.nom}
+              width={640}
+              height={384}
               className="w-full h-48 object-cover rounded-xl"
-              loading="lazy"
             />
           </div>
         </div>

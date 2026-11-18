@@ -1,4 +1,5 @@
 import { PageTemplate } from "@/components/layout/PageTemplate";
+import Image from "next/image";
 import Link from "next/link";
 import { actualites } from "@/data/actualites";
 
@@ -25,11 +26,12 @@ export default function ActualitesPage() {
           {actualites.map((a) => (
             <div key={a.slug} className="bg-white rounded-xl border border-istm-200 overflow-hidden hover:shadow-md transition-shadow">
               <div className="h-48">
-                <img
+                <Image
                   src={a.image}
                   alt={a.titre}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  width={800}
+                  height={480}
+                  className="h-full w-full object-cover"
                 />
               </div>
               <div className="p-5">

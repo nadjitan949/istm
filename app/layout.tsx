@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { Suspense } from "react";
+import { Header } from "@/components/layout/MegaMenu";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,7 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${inter.variable} ${playfairDisplay.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <Header />
+        <Suspense
+          fallback={<div className="sticky top-0 z-40 h-16 border-b border-istm-200 bg-white/95 backdrop-blur" />}
+        >
+          <Header />
+        </Suspense>
         {children}
         <Footer />
       </body>

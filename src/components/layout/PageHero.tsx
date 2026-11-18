@@ -12,7 +12,8 @@ interface PageHeroProps {
 }
 
 export const PageHero = ({ title, href, className }: PageHeroProps) => {
-  const imageUrl = images.pageHero[href || "/"];
+  const pageHeroImages = images.pageHero as Record<string, string>;
+  const imageUrl = href ? pageHeroImages[href] ?? images.hero : images.hero;
 
   return (
     <div className={["relative overflow-hidden", className].filter(Boolean).join(" ")}>

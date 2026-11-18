@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, PlayCircle } from "lucide-react";
 
@@ -30,16 +28,17 @@ export const Hero = () => {
             avec des filières professionnalisantes en BTS, BT, Licence et Master.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/ecole/presentation">
-              <Button size="lg" className="w-full sm:w-auto">
-                <ArrowRight className="h-5 w-5 mr-2" /> Découvrir nos formations
-              </Button>
-            </Link>
-            <Link href="/admissions/pre-inscription">
-              <Button variant="red" size="lg" className="w-full sm:w-auto">
-                <PlayCircle className="h-5 w-5 mr-2" /> Demander une inscription
-              </Button>
-            </Link>
+            <Button size="lg" className="w-full sm:w-auto" href="/ecole/presentation">
+              <ArrowRight className="mr-2 h-5 w-5" /> Découvrir nos formations
+            </Button>
+            <Button
+              variant="red"
+              size="lg"
+              className="w-full sm:w-auto"
+              href="/admissions/pre-inscription"
+            >
+              <PlayCircle className="mr-2 h-5 w-5" /> Demander une inscription
+            </Button>
           </div>
         </motion.div>
       </div>

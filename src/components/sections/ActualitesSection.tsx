@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { actualites } from "@/data/actualites";
-import { images } from "@/data/images";
 
 export const ActualitesSection = () => {
   const featured = actualites.slice(0, 3);

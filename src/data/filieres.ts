@@ -188,10 +188,20 @@ export const filieres: Filiere[] = [
   },
 ];
 
+function normalizeDiplome(diplome: string) {
+  return diplome.trim().toLowerCase();
+}
+
 export function getFiliereBySlug(diplome: string, slug: string): Filiere | undefined {
-  return filieres.find((f) => f.diplome === diplome && f.slug === slug);
+  const normalizedDiplome = normalizeDiplome(diplome);
+
+  return filieres.find(
+    (f) => normalizeDiplome(f.diplome) === normalizedDiplome && f.slug === slug
+  );
 }
 
 export function getFilieresByDiplome(diplome: string): Filiere[] {
-  return filieres.filter((f) => f.diplome === diplome);
+  const normalizedDiplome = normalizeDiplome(diplome);
+
+  return filieres.filter((f) => normalizeDiplome(f.diplome) === normalizedDiplome);
 }

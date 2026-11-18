@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as React from "react";
-import { navigation, getSiblings, findNavItem } from "@/data/navigation";
+import { navigation, getSiblings } from "@/data/navigation";
 
 interface PageNavProps {
   currentHref: string;

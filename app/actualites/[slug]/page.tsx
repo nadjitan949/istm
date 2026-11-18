@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { actualites } from "@/data/actualites";
 
@@ -5,12 +6,13 @@ export const metadata = {
   title: "Actualité - ISTM",
 };
 
-export default function ArticlePage({
+export default async function ArticlePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const article = actualites.find((a) => a.slug === params.slug);
+  const { slug } = await params;
+  const article = actualites.find((a) => a.slug === slug);
 
   if (!article) {
     return (
@@ -23,9 +25,11 @@ export default function ArticlePage({
   return (
     <PageTemplate title={article.titre} href={`/actualites/${article.slug}`} showSubNav={false}>
       <div className="space-y-8 max-w-3xl mx-auto">
-        <img
+        <Image
           src={article.image}
           alt={article.titre}
+          width={1200}
+          height={512}
           className="w-full h-64 object-cover rounded-xl"
           priority
         />

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { images } from "@/data/images";
 
 export const PartnersSection = () => {
@@ -16,12 +17,13 @@ export const PartnersSection = () => {
         </div>
         <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale">
           {images.partenaires.map((src, i) => (
-            <img
+            <Image
               key={i}
               src={src}
               alt="Partenaire"
+              width={160}
+              height={48}
               className="h-12 w-auto object-contain"
-              loading="lazy"
             />
           ))}
         </div>

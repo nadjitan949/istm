@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { X, ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
 import Link from "next/link";
@@ -13,7 +14,7 @@ interface MobileDrawerProps {
 }
 
 const MobileNavItem = React.forwardRef<HTMLLIElement, { item: NavItem }>(
-  ({ item, isOpen = false }, ref) => {
+  ({ item }, ref) => {
     const [subOpen, setSubOpen] = React.useState(false);
     const Icon = item.icon;
 
@@ -81,12 +82,18 @@ export const MobileDrawer = React.forwardRef<HTMLDivElement, MobileDrawerProps>(
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className={`fixed inset-0 z-50 ${isOpen ? "" : "hidden"} flex-col lg:hidden`}
+        className={`fixed inset-0 z-50 ${isOpen ? "flex" : "hidden"} flex-col bg-black/30 md:hidden`}
       >
-        <div className="flex-1 bg-white overflow-y-auto border-l border-istm-200 shadow-2xl">
+        <div className="ml-auto flex h-full w-full max-w-sm flex-1 flex-col overflow-y-auto border-l border-istm-200 bg-white shadow-2xl">
           <div className="flex items-center justify-between px-6 py-5 border-b border-istm-100">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/images/logo.jpeg" alt="Logo ISTM" className="h-8 w-auto" />
+              <Image
+                src="/images/logo.jpeg"
+                alt="Logo ISTM"
+                width={96}
+                height={32}
+                className="h-8 w-auto"
+              />
               <span className="font-bold text-xl text-istm-900 tracking-tight">ISTM</span>
             </Link>
             <button onClick={onClose} className="p-2 text-istm-500 hover:text-istm-900">
@@ -101,7 +108,7 @@ export const MobileDrawer = React.forwardRef<HTMLDivElement, MobileDrawerProps>(
             </ul>
           </nav>
           <div className="px-6 py-6 border-t border-istm-100">
-            <Button variant="red" className="w-full" asChild href="/admissions/pre-inscription">
+            <Button variant="red" className="w-full" href="/admissions/pre-inscription">
               S'inscrire
             </Button>
           </div>

@@ -8,6 +8,12 @@ export const metadata = {
 };
 
 export default function FaqPage() {
+  const items = faq.map((item, index) => ({
+    id: `faq-${index + 1}`,
+    title: item.question,
+    content: item.reponse,
+  }));
+
   return (
     <PageTemplate title="FAQ" href="/admissions/faq" showSubNav>
       <div className="space-y-8">
@@ -15,7 +21,7 @@ export default function FaqPage() {
           Vous avez des questions sur l'inscription à l'ISTM ? Consultez notre
           FAQ.
         </p>
-        <Accordion items={faq} />
+        <Accordion items={items} />
       </div>
     </PageTemplate>
   );

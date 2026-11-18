@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import { images } from "@/data/images";
@@ -28,11 +27,9 @@ export const Presentation = () => {
               réussir aux examens d'État et à s'insérer durablement dans la vie
               active.
             </p>
-            <Link href="/ecole/presentation">
-              <Button variant="red" asChild>
-                <ArrowRight className="h-5 w-5 mr-2" /> En savoir plus
-              </Button>
-            </Link>
+            <Button variant="red" href="/ecole/presentation">
+              <ArrowRight className="mr-2 h-5 w-5" /> En savoir plus
+            </Button>
           </div>
           <div className="relative">
             <Image

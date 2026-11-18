@@ -1,4 +1,4 @@
-import { Home, School, Building2, GraduationCap, Users, Mail, Phone, MapPin, BookOpen, Award, Mail as MailIcon, ChevronRight } from "lucide-react";
+import { Home, School, GraduationCap, Users, Mail, Phone, BookOpen, Award, Mail as MailIcon } from "lucide-react";
 
 export type NavItem = {
   label: string;

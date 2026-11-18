@@ -13,7 +13,6 @@ export const images = {
   valeurs: "https://images.unsplash.com/photo-1544717297-fa652477776c?w=800&q=80",
   equipe: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
   infrastructures: "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=800&q=80",
-  partenaires: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
 
   pageHero: {
     "/ecole/presentation": "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=1200&q=80",

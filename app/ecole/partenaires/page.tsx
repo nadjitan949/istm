@@ -1,4 +1,5 @@
 import { PageTemplate } from "@/components/layout/PageTemplate";
+import Image from "next/image";
 import { images } from "@/data/images";
 
 export const metadata = {
@@ -17,12 +18,13 @@ export default function PartenairesPage() {
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {images.partenaires.map((src, i) => (
-            <img
+            <Image
               key={i}
               src={src}
               alt={`Partenaire ${i + 1}`}
+              width={160}
+              height={64}
               className="h-16 w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all"
-              loading="lazy"
             />
           ))}
         </div>

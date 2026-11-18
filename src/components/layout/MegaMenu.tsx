@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Image as ImageIcon } from "lucide-react";
 import Link from "next/link";
@@ -8,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { navigation, NavItem } from "@/data/navigation";
 import { images } from "@/data/images";
 import { Button } from "@/components/ui/Button";
+import { MobileDrawer } from "./MobileDrawer";
 
 const MEGA_MENU_ICONS: Record<string, React.ElementType> = {
   Présentation: ImageIcon,
@@ -136,11 +138,12 @@ export const MegaMenu = React.forwardRef<HTMLDivElement, MegaMenuProps>(
                 {featured && (
                   <div className="lg:w-2/5 rounded-xl border border-istm-200 bg-istm-50 overflow-hidden">
                     <Link href={featured.href} className="block">
-                      <img
+                      <Image
                         src={featured.image}
                         alt={featured.title}
-                        className="w-full h-48 object-cover"
-                        loading="lazy"
+                        width={800}
+                        height={384}
+                        className="h-48 w-full object-cover"
                       />
                     </Link>
                     <div className="p-6">
@@ -171,6 +174,8 @@ export const MegaMenu = React.forwardRef<HTMLDivElement, MegaMenuProps>(
     );
   }
 );
+MegaMenu.displayName = "MegaMenu";
+
 interface NavItemButtonProps {
   item: NavItem;
   isOpen: boolean;
@@ -213,7 +218,7 @@ export const DesktopNav = React.forwardRef<HTMLDivElement, DesktopNavProps>(
     return (
       <nav
         ref={ref}
-        className="flex items-center gap-2"
+        className="hidden items-center gap-2 md:flex"
         aria-label="Navigation principale"
       >
         {navigation.map((item) => {
@@ -263,9 +268,8 @@ export const DesktopNav = React.forwardRef<HTMLDivElement, DesktopNavProps>(
 );
 DesktopNav.displayName = "DesktopNav";
 
-interface HeaderProps {}
-export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
-  (props, ref) => {
+export const Header = React.forwardRef<HTMLDivElement>(
+  (_, ref) => {
     const [isMegaOpen, setIsMegaOpen] = React.useState(false);
     const [megaItem, setMegaItem] = React.useState<NavItem | null>(null);
     const [isMobileOpen, setIsMobileOpen] = React.useState(false);
@@ -275,7 +279,12 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
       setMegaItem(null);
     };
 
-    const toggleMega = (item: NavItem) => {
+    const toggleMega = (item: NavItem | null) => {
+      if (!item) {
+        closeAll();
+        return;
+      }
+
       if (isMegaOpen && megaItem?.href === item.href) {
         closeAll();
       } else {
@@ -288,11 +297,13 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
       <div ref={ref} className="sticky top-0 z-40 border-b border-istm-200 bg-white/95 backdrop-blur">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img
+            <Image
               src={images.logo}
               alt="Logo ISTM"
+              width={120}
+              height={40}
               className="h-10 w-auto"
-              loading="eager"
+              priority
             />
             <span className="font-bold text-xl text-istm-900 tracking-tight">ISTM</span>
           </Link>
@@ -304,7 +315,12 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
             closeAll={closeAll}
           />
 
-          <Button variant="red" size="sm" asChild href="/admissions/pre-inscription">
+          <Button
+            variant="red"
+            size="sm"
+            href="/admissions/pre-inscription"
+            className="hidden md:inline-flex"
+          >
             S'inscrire
           </Button>
 
@@ -316,6 +332,8 @@ export const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
             <Menu className="h-5 w-5" />
           </button>
         </div>
+
+        <MobileDrawer isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
       </div>
     );
   }

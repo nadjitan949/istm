@@ -1,5 +1,5 @@
 ﻿▲ Next.js 16.4.6 (Turbopack)
-✓ Running next.config.ts took 126ms
+✓ Running next.config.ts took 335ms
 - Cache Components enabled
 - Partial Prefetching enabled
 - Experiments (use with caution):

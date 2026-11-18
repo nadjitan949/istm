@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
 export const metadata = {
@@ -13,9 +12,9 @@ export default function NotFound() {
       <p className="text-istm-600 mb-10 max-w-md">
         La page que vous recherchez n'existe pas ou a été déplacée.
       </p>
-      <Link href="/">
-        <Button variant="red">Retour à l'accueil</Button>
-      </Link>
+      <Button variant="red" href="/">
+        Retour à l'accueil
+      </Button>
     </main>
   );
 }

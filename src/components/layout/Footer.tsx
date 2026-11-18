@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { navigation } from "@/data/navigation";
 import { site } from "@/data/site";
@@ -6,11 +7,11 @@ import { images } from "@/data/images";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const SOCIALS = [
-  { label: "E-mail", href: site.email, icon: Mail },
+  { label: "E-mail", href: `mailto:${site.email}`, icon: Mail },
 ];
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
 
   // Get top-level items that have children for the footer columns
   const columns = navigation.filter((item) => item.children && item.children.length > 0);
@@ -21,7 +22,13 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           <div className="col-span-1 lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src={images.logo} alt="Logo ISTM" className="h-8 w-auto" />
+              <Image
+                src={images.logo}
+                alt="Logo ISTM"
+                width={96}
+                height={32}
+                className="h-8 w-auto"
+              />
               <span className="font-bold text-xl text-white tracking-tight">ISTM</span>
             </div>
             <p className="text-istm-300 max-w-md">
@@ -97,3 +104,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;
