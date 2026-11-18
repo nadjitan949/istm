@@ -1,0 +1,83 @@
+// À REMPLACER : toutes ces URLs par des images réelles de l'ISTM
+// Pour le moment, images de substitution depuis Unsplash
+
+export const images = {
+  logo: "/images/logo.jpeg",
+  favicon: "/images/logo.jpeg",
+  hero: "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=1200&q=80",
+  primaire: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
+  secondaire: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+  superieur: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+  presentation: "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=800&q=80",
+  direction: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c81?w=800&q=80",
+  valeurs: "https://images.unsplash.com/photo-1544717297-fa652477776c?w=800&q=80",
+  equipe: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+  infrastructures: "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=800&q=80",
+  partenaires: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+
+  pageHero: {
+    "/ecole/presentation": "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=1200&q=80",
+    "/ecole/mot-de-la-direction": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c81?w=1200&q=80",
+    "/ecole/valeurs": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/ecole/equipe": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/ecole/infrastructures": "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=1200&q=80",
+    "/ecole/partenaires": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
+    "/primaire": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
+    "/primaire/cycle-preparatoire": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
+    "/primaire/cycle-elementaire": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
+    "/primaire/cycle-moyen": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
+    "/primaire/vie-de-l-eleve": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&q=80",
+    "/secondaire": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/secondaire/college": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/secondaire/lycee": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/secondaire/preparation-examens": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/secondaire/orientation": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/superieur": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/superieur/bts": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/superieur/bt": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/superieur/licence": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/superieur/master": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=80",
+    "/admissions": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/admissions/conditions": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/admissions/procedure": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/admissions/frais": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/admissions/calendrier": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/admissions/faq": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/admissions/pre-inscription": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+    "/vie-scolaire": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/vie-scolaire/clubs": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/vie-scolaire/sport": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/vie-scolaire/bibliotheque": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/vie-scolaire/reglement": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+    "/actualites": "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=1200&q=80",
+    "/actualites/evenements": "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=1200&q=80",
+    "/galerie": "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=1200&q=80",
+    "/contact": "https://images.unsplash.com/photo-1544717297-fa652477776c?w=1200&q=80",
+  },
+
+  galerie: {
+    campus: [
+      "https://images.unsplash.com/photo-1541339907198-e08854caf25c?w=600&q=80",
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
+    ],
+    cours: [
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80",
+    ],
+    evenements: [
+      "https://images.unsplash.com/photo-1544717297-fa652477776c?w=600&q=80",
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80",
+    ],
+    sport: [
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80",
+    ],
+  },
+
+  partenaires: [
+    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=200&q=80",
+    "https://images.unsplash.com/photo-1544717297-fa652477776c?w=200&q=80",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=200&q=80",
+    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&q=80",
+  ],
+};
