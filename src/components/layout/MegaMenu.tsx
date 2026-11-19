@@ -2,263 +2,254 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Image as ImageIcon } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, ChevronRight, Image as ImageIcon, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation, NavItem } from "@/data/navigation";
+import { navigation, type NavItem } from "@/data/navigation";
 import { images } from "@/data/images";
+import { site } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { MobileDrawer } from "./MobileDrawer";
 
-const MEGA_MENU_ICONS: Record<string, React.ElementType> = {
-  Présentation: ImageIcon,
-  "Mot de la direction": ImageIcon,
-  "Mission, vision et valeurs": ImageIcon,
-  "Notre équipe": ImageIcon,
-  "Infrastructures et équipements": ImageIcon,
-  Partenaires: ImageIcon,
-  "Cycle préparatoire (CP1-CP2)": ImageIcon,
-  "Cycle élémentaire (CE1-CE2)": ImageIcon,
-  "Cycle moyen (CM1-CM2)": ImageIcon,
-  "Vie de l'élève": ImageIcon,
-  Collège: ImageIcon,
-  Lycée: ImageIcon,
-  "Préparation aux examens": ImageIcon,
-  Orientation: ImageIcon,
-  BTS: ImageIcon,
-  BT: ImageIcon,
-  Licence: ImageIcon,
-  Master: ImageIcon,
-  "Toutes les filières": ImageIcon,
-  "Conditions d'admission": ImageIcon,
-  "Procédure d'inscription": ImageIcon,
-  "Frais de scolarité": ImageIcon,
-  Calendrier: ImageIcon,
-  FAQ: ImageIcon,
-  "Pré-inscription en ligne": ImageIcon,
-  "Clubs et activités": ImageIcon,
-  Sport: ImageIcon,
-  "Bibliothèque et informatique": ImageIcon,
-  "Règlement intérieur": ImageIcon,
-};
-
-const MEGA_MENU_FEATURED: Record<string, { title: string; href: string; image: string }> = {
+const featuredByParent: Record<
+  string,
+  { title: string; href: string; image: string; description: string }
+> = {
   "/ecole": {
     title: "Découvrir l'ISTM",
     href: "/ecole/presentation",
     image: images.pageHero["/ecole/presentation"],
+    description: "Présentation, direction, valeurs et partenaires de l'établissement.",
   },
   "/primaire": {
-    title: "Cycle Primaire",
+    title: "Cycle primaire",
     href: "/primaire/cycle-preparatoire",
     image: images.pageHero["/primaire"],
+    description: "Des bases solides pour apprendre, grandir et s'épanouir dès les premières années.",
   },
   "/secondaire": {
-    title: "Collège & Lycée",
+    title: "Collège & lycée",
     href: "/secondaire/college",
     image: images.pageHero["/secondaire"],
+    description: "Préparer les examens, l'orientation et la poursuite d'études dans un cadre exigeant.",
   },
   "/superieur": {
-    title: "Formations Supérieures",
-    href: "/superieur/bts/informatique-gestion",
+    title: "Formations supérieures",
+    href: "/superieur/bts",
     image: images.pageHero["/superieur"],
+    description: "BTS, BT, Licence et Master pour construire un parcours professionnalisant.",
   },
   "/admissions": {
-    title: "S'inscrire à l'ISTM",
+    title: "Admissions & inscription",
     href: "/admissions/procedure",
     image: images.pageHero["/admissions"],
+    description: "Retrouvez les conditions, la procédure, les frais et le calendrier d'inscription.",
   },
   "/vie-scolaire": {
-    title: "Vie Scolaire",
+    title: "Vie scolaire",
     href: "/vie-scolaire/clubs",
     image: images.pageHero["/vie-scolaire"],
+    description: "Clubs, sport, bibliothèque et cadre de vie au quotidien.",
   },
 };
+
+function isActiveRoute(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function splitColumns(items: NavItem[]) {
+  if (items.length <= 4) {
+    return [items];
+  }
+
+  const midpoint = Math.ceil(items.length / 2);
+  return [items.slice(0, midpoint), items.slice(midpoint)];
+}
 
 interface MegaMenuProps {
   isOpen: boolean;
   onClose: () => void;
   parentItem: NavItem;
+  pathname: string;
 }
 
 export const MegaMenu = React.forwardRef<HTMLDivElement, MegaMenuProps>(
-  ({ isOpen, onClose, parentItem }, ref) => {
-    const pathname = usePathname();
-    const children = parentItem.children || [];
-    const columns: NavItem[][] = [];
-    for (let i = 0; i < children.length; i += 3) {
-      columns.push(children.slice(i, i + 3));
-    }
-    const featured = MEGA_MENU_FEATURED[parentItem.href];
+  ({ isOpen, onClose, parentItem, pathname }, ref) => {
+    const children = parentItem.children ?? [];
+    const columns = splitColumns(children);
+    const featured =
+      featuredByParent[parentItem.href] ?? {
+        title: parentItem.label,
+        href: parentItem.href,
+        image: images.hero,
+        description: parentItem.description ?? "Explorez cette rubrique.",
+      };
 
     return (
       <AnimatePresence>
-        {isOpen && (
+        {isOpen ? (
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed z-50 top-16 left-0 right-0 border-b border-istm-200 bg-white/95 backdrop-blur shadow-xl"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18 }}
+            className="absolute inset-x-0 top-full hidden border-t border-istm-200 bg-white shadow-[0_26px_60px_-40px_rgba(8,44,78,0.45)] lg:block"
           >
-            <div className="max-w-7xl mx-auto px-4 py-8">
-              <div className="flex flex-col lg:flex-row gap-8">
-                <div className="flex-1 lg:w-3/5 space-y-6">
-                  {columns.map((column, colIdx) => (
-                    <div key={colIdx} className="space-y-4">
-                      {column.map((item) => {
-                        const Icon = MEGA_MENU_ICONS[item.label] || ImageIcon;
-                        const isActive = pathname === item.href;
+            <div className="mx-auto grid max-w-7xl gap-6 px-4 py-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.8fr)]">
+              <div className={`grid gap-4 ${columns.length > 1 ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
+                {columns.map((column, index) => (
+                  <div key={`${parentItem.href}-${index}`} className="rounded-3xl border border-istm-100 bg-white p-4">
+                    <div className="mb-3 flex items-center justify-between">
+                      <div>
+                        <p className="text-sm font-semibold text-istm-900">{parentItem.label}</p>
+                        <p className="text-xs text-istm-500">{parentItem.description}</p>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-2">
+                      {column.map((child) => {
+                        const active = isActiveRoute(pathname, child.href);
+
                         return (
-                          <div
-                            key={item.href}
-                            className="group flex items-center gap-3 rounded-xl px-3 py-2.5 hover:bg-istm-50 transition-colors"
-                          >
-                            <Icon className="h-4 w-4 text-istm-600 group-hover:text-red-600" />
+                          <li key={child.href}>
                             <Link
-                              href={item.href}
+                              href={child.href}
+                              onClick={onClose}
                               className={[
-                                "flex-1 text-sm font-medium transition-colors",
-                                isActive ? "text-red-600" : "text-istm-700 hover:text-istm-900",
+                                "group flex items-start gap-3 rounded-2xl px-3 py-3 transition",
+                                active
+                                  ? "bg-red-50 text-red-600"
+                                  : "hover:bg-istm-50 text-istm-700 hover:text-istm-900",
                               ].join(" ")}
+                              aria-current={active ? "page" : undefined}
                             >
-                              {item.label}
+                              <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-istm-50 text-istm-600 group-hover:bg-white">
+                                <ImageIcon className="h-4 w-4" />
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block text-sm font-medium">{child.label}</span>
+                                {child.description ? (
+                                  <span className="mt-1 block text-xs leading-relaxed text-istm-500 group-hover:text-istm-600">
+                                    {child.description}
+                                  </span>
+                                ) : null}
+                              </span>
                             </Link>
-                            <p className="text-xs text-istm-500 group-hover:text-istm-700 transition-colors">
-                              {item.description}
-                            </p>
-                          </div>
+                          </li>
                         );
                       })}
-                    </div>
-                  ))}
-                </div>
-                {featured && (
-                  <div className="lg:w-2/5 rounded-xl border border-istm-200 bg-istm-50 overflow-hidden">
-                    <Link href={featured.href} className="block">
-                      <Image
-                        src={featured.image}
-                        alt={featured.title}
-                        width={800}
-                        height={384}
-                        className="h-48 w-full object-cover"
-                      />
-                    </Link>
-                    <div className="p-6">
-                      <Link
-                        href={featured.href}
-                        className="text-xl font-semibold text-istm-900 hover:text-red-600 transition-colors"
-                      >
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              <div className="overflow-hidden rounded-3xl border border-istm-100 bg-istm-900 text-white">
+                <Link href={featured.href} onClick={onClose} className="block">
+                  <div className="relative h-56">
+                    <Image
+                      src={featured.image}
+                      alt={featured.title}
+                      fill
+                      sizes="(max-width: 1280px) 100vw, 320px"
+                      className="object-cover opacity-55"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-istm-900 via-istm-900/65 to-transparent" />
+                    <div className="absolute inset-x-5 bottom-5">
+                      <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90">
+                        {parentItem.label}
+                      </span>
+                      <h3 className="mt-3 text-2xl font-bold leading-tight text-white">
                         {featured.title}
-                      </Link>
-                      <p className="mt-2 text-sm text-istm-600">
-                        Découvrez tout ce que l'ISTM vous réserve.
-                      </p>
+                      </h3>
                     </div>
                   </div>
-                )}
+
+                  <div className="space-y-4 px-5 py-5">
+                    <p className="text-sm leading-relaxed text-istm-200">{featured.description}</p>
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-white">
+                      En savoir plus
+                      <ChevronRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </Link>
               </div>
             </div>
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 p-2 text-istm-500 hover:text-istm-900"
-              aria-label="Fermer le menu"
-            >
-              <X className="h-5 w-5" />
-            </button>
           </motion.div>
-        )}
+        ) : null}
       </AnimatePresence>
     );
   }
 );
 MegaMenu.displayName = "MegaMenu";
 
-interface NavItemButtonProps {
-  item: NavItem;
-  isOpen: boolean;
-  onToggle: () => void;
-}
-
-const NavItemButton = React.forwardRef<HTMLButtonElement, NavItemButtonProps>(
-  ({ item, isOpen, onToggle }, ref) => {
-    const Icon = item.icon;
-    const isMega = item.megaMenu;
-
-    return (
-      <button
-        ref={ref}
-        onClick={onToggle}
-        className="flex items-center gap-2 px-4 py-3 rounded-xl text-istm-700 hover:bg-istm-50 hover:text-istm-900 transition-colors group"
-        aria-expanded={isOpen}
-        aria-haspopup={isMega ? "true" : "false"}
-      >
-        {Icon && <Icon className="h-4 w-4" aria-hidden="true" />}
-        <span className="text-sm font-medium">{item.label}</span>
-        {isMega && <ChevronDown className="h-3.5 w-3.5 text-istm-500 group-hover:text-istm-900 transition-transform" />}
-      </button>
-    );
-  }
-);
-NavItemButton.displayName = "NavItemButton";
-
 interface DesktopNavProps {
-  isMegaOpen: boolean;
-  megaItem: NavItem | null;
-  setMegaItem: (item: NavItem | null) => void;
-  closeAll: () => void;
+  pathname: string;
+  activeItem: NavItem | null;
+  onOpen: (item: NavItem) => void;
+  onClose: () => void;
 }
 
-export const DesktopNav = React.forwardRef<HTMLDivElement, DesktopNavProps>(
-  ({ isMegaOpen, megaItem, setMegaItem, closeAll }, ref) => {
-    const pathname = usePathname();
-
+const DesktopNav = React.forwardRef<HTMLDivElement, DesktopNavProps>(
+  ({ pathname, activeItem, onOpen, onClose }, ref) => {
     return (
-      <nav
-        ref={ref}
-        className="hidden items-center gap-2 md:flex"
-        aria-label="Navigation principale"
-      >
+      <nav ref={ref} className="hidden items-center gap-1 md:flex" aria-label="Navigation principale">
         {navigation.map((item) => {
-          if (!item.megaMenu) {
-            const isActive = pathname === item.href;
-            const Icon = item.icon;
+          const active = isActiveRoute(pathname, item.href);
+
+          if (!item.megaMenu || !item.children?.length) {
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                onMouseEnter={onClose}
                 className={[
-                  "flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors",
-                  isActive
-                    ? "bg-red-50 text-red-600 border border-red-200"
-                    : "text-istm-600 hover:bg-istm-50 hover:text-istm-900",
+                  "rounded-full px-4 py-2.5 text-sm font-medium transition-colors",
+                  active
+                    ? "bg-istm-900 text-white"
+                    : "text-istm-700 hover:bg-istm-50 hover:text-istm-900",
                 ].join(" ")}
-                aria-current={isActive ? "page" : undefined}
+                aria-current={active ? "page" : undefined}
               >
-                {Icon && <Icon className="h-4 w-4" aria-hidden="true" />}
                 {item.label}
               </Link>
             );
           }
 
+          const open = activeItem?.href === item.href;
+
           return (
-            <div key={item.href} className="relative">
-              <NavItemButton
-                item={item}
-                isOpen={isMegaOpen && megaItem?.href === item.href}
-                onToggle={() => {
-                  if (isMegaOpen && megaItem?.href === item.href) {
-                    closeAll();
-                  } else {
-                    setMegaItem(item);
-                  }
-                }}
+            <div
+              key={item.href}
+              className="relative"
+              onMouseEnter={() => onOpen(item)}
+            >
+              <button
+                type="button"
+                onClick={() => (open ? onClose() : onOpen(item))}
+                className={[
+                  "inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium transition-colors",
+                  open || active
+                    ? "bg-istm-900 text-white"
+                    : "text-istm-700 hover:bg-istm-50 hover:text-istm-900",
+                ].join(" ")}
+                aria-expanded={open}
+                aria-haspopup="true"
+              >
+                {item.label}
+                <ChevronDown className={[
+                  "h-4 w-4 transition-transform",
+                  open ? "rotate-180" : "",
+                ].join(" ")} />
+              </button>
+
+              <MegaMenu
+                isOpen={open}
+                onClose={onClose}
+                parentItem={item}
+                pathname={pathname}
               />
-              {isMegaOpen && megaItem?.href === item.href && (
-                <MegaMenu isOpen={true} onClose={closeAll} parentItem={item} />
-              )}
             </div>
           );
         })}
@@ -268,74 +259,74 @@ export const DesktopNav = React.forwardRef<HTMLDivElement, DesktopNavProps>(
 );
 DesktopNav.displayName = "DesktopNav";
 
-export const Header = React.forwardRef<HTMLDivElement>(
-  (_, ref) => {
-    const [isMegaOpen, setIsMegaOpen] = React.useState(false);
-    const [megaItem, setMegaItem] = React.useState<NavItem | null>(null);
-    const [isMobileOpen, setIsMobileOpen] = React.useState(false);
+export const Header = React.forwardRef<HTMLDivElement>((_, ref) => {
+  const pathname = usePathname();
+  const [activeItem, setActiveItem] = React.useState<NavItem | null>(null);
+  const [isMobileOpen, setIsMobileOpen] = React.useState(false);
 
-    const closeAll = () => {
-      setIsMegaOpen(false);
-      setMegaItem(null);
-    };
-
-    const toggleMega = (item: NavItem | null) => {
-      if (!item) {
-        closeAll();
-        return;
-      }
-
-      if (isMegaOpen && megaItem?.href === item.href) {
-        closeAll();
-      } else {
-        setMegaItem(item);
-        setIsMegaOpen(true);
+  React.useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setActiveItem(null);
+        setIsMobileOpen(false);
       }
     };
 
-    return (
-      <div ref={ref} className="sticky top-0 z-40 border-b border-istm-200 bg-white/95 backdrop-blur">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src={images.logo}
-              alt="Logo ISTM"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-              priority
-            />
-            <span className="font-bold text-xl text-istm-900 tracking-tight">ISTM</span>
-          </Link>
+    window.addEventListener("keydown", onKeyDown);
 
-          <DesktopNav
-            isMegaOpen={isMegaOpen}
-            megaItem={megaItem}
-            setMegaItem={toggleMega}
-            closeAll={closeAll}
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  return (
+    <header
+      ref={ref}
+      className="sticky top-0 z-40 border-b border-istm-200 bg-white/95 backdrop-blur"
+      onMouseLeave={() => setActiveItem(null)}
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src={images.logo}
+            alt={`Logo ${site.shortName}`}
+            width={120}
+            height={40}
+            className="h-10 w-auto"
+            priority
           />
+          <span className="hidden text-xl font-bold tracking-tight text-istm-900 sm:block">
+            {site.shortName}
+          </span>
+        </Link>
 
-          <Button
-            variant="red"
-            size="sm"
-            href="/admissions/pre-inscription"
-            className="hidden md:inline-flex"
-          >
+        <DesktopNav
+          pathname={pathname}
+          activeItem={activeItem}
+          onOpen={setActiveItem}
+          onClose={() => setActiveItem(null)}
+        />
+
+        <div className="hidden items-center gap-3 md:flex">
+          <Button variant="red" size="sm" href="/admissions/pre-inscription">
             S'inscrire
           </Button>
-
-          <button
-            onClick={() => setIsMobileOpen(true)}
-            className="md:hidden p-2 text-istm-600 hover:text-istm-900"
-            aria-label="Ouvrir le menu mobile"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
         </div>
 
-        <MobileDrawer isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
+        <button
+          type="button"
+          onClick={() => setIsMobileOpen(true)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-istm-200 text-istm-600 transition hover:border-istm-300 hover:bg-istm-50 hover:text-istm-900 md:hidden"
+          aria-label="Ouvrir le menu mobile"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
       </div>
-    );
-  }
-);
+
+      <MobileDrawer
+        isOpen={isMobileOpen}
+        onClose={() => setIsMobileOpen(false)}
+        pathname={pathname}
+      />
+    </header>
+  );
+});
 Header.displayName = "Header";
