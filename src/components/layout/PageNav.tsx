@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import * as React from "react";
 import { navigation, getSiblings } from "@/data/navigation";
 
 interface PageNavProps {
@@ -10,8 +7,7 @@ interface PageNavProps {
 }
 
 export const PageNav = ({ currentHref }: PageNavProps) => {
-  // Find the section that contains the current page
-  let siblings: { prev?: typeof navigation[number]; next?: typeof navigation[number] } = {
+  let siblings: { prev?: (typeof navigation)[number]; next?: (typeof navigation)[number] } = {
     prev: undefined,
     next: undefined,
   };
@@ -33,23 +29,25 @@ export const PageNav = ({ currentHref }: PageNavProps) => {
   }
 
   return (
-    <nav className="mt-12 border-t border-istm-200 pt-8">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center">
+    <nav className="mt-12 border-t border-istm-200 pt-8" aria-label="Navigation entre pages">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="flex items-center justify-between gap-4">
           {siblings.prev && (
             <Link
               href={siblings.prev.href}
-              className="flex items-center gap-2 text-istm-600 hover:text-red-600 transition-colors"
+              className="group inline-flex items-center gap-2 rounded-md border border-istm-200 px-4 py-2.5 text-sm font-medium text-istm-700 transition-colors duration-200 hover:border-istm-400 hover:text-istm-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-600 focus-visible:ring-offset-2"
             >
-              <ChevronLeft className="h-4 w-4" /> {siblings.prev.label}
+              <ChevronLeft className="h-4 w-4 text-istm-400 transition-transform duration-200 group-hover:-translate-x-0.5 group-hover:text-red-600" />
+              {siblings.prev.label}
             </Link>
           )}
           {siblings.next && (
             <Link
               href={siblings.next.href}
-              className="flex items-center gap-2 text-istm-600 hover:text-red-600 transition-colors"
+              className="group ml-auto inline-flex items-center gap-2 rounded-md border border-istm-200 px-4 py-2.5 text-sm font-medium text-istm-700 transition-colors duration-200 hover:border-istm-400 hover:text-istm-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-600 focus-visible:ring-offset-2"
             >
-              {siblings.next.label} <ChevronRight className="h-4 w-4" />
+              {siblings.next.label}
+              <ChevronRight className="h-4 w-4 text-istm-400 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-red-600" />
             </Link>
           )}
         </div>
@@ -60,27 +58,37 @@ export const PageNav = ({ currentHref }: PageNavProps) => {
 
 export const CtaBanner = () => {
   return (
-    <section className="bg-istm-600 py-12">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-          Prêt à rejoindre l'ISTM ?
-        </h2>
-        <p className="text-istm-100 mb-8 max-w-xl mx-auto text-lg">
-          Inscrivez-vous dès aujourd'hui et devenez un leader de demain.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <a
-            href="/admissions/pre-inscription"
-            className="bg-red-600 text-white px-8 py-3 rounded-xl font-medium hover:bg-red-700 transition-colors"
-          >
-            Pré-inscription en ligne
-          </a>
-          <a
-            href="/contact"
-            className="bg-white text-istm-900 px-8 py-3 rounded-xl font-medium hover:bg-istm-50 transition-colors"
-          >
-            Nous contacter
-          </a>
+    <section className="py-8 md:py-10">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="rounded-lg bg-istm-900 px-6 py-12 text-center md:px-12 md:py-14">
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-red-500" />
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-istm-100">
+              Admission
+            </span>
+            <span className="h-px w-8 bg-red-500" />
+          </div>
+          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-semibold text-white md:text-4xl">
+            Prêt à rejoindre l&apos;ISTM ?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-istm-100/80">
+            Lancez votre pré-inscription et échangez avec notre équipe pour construire un parcours
+            adapté à votre projet.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              href="/admissions/pre-inscription"
+              className="inline-flex items-center justify-center rounded-md bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-istm-900"
+            >
+              Pré-inscription en ligne
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:border-white/50 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-istm-900"
+            >
+              Nous contacter
+            </Link>
+          </div>
         </div>
       </div>
     </section>

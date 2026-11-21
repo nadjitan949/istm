@@ -1,87 +1,82 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation } from "@/data/navigation";
+import { navigation, isActiveRoute, type NavItem } from "@/data/navigation";
 
-function getParentSection(pathname: string) {
-  return navigation.find(
-    (section) =>
-      section.children?.length &&
-      (pathname === section.href || pathname.startsWith(`${section.href}/`))
-  );
-}
+// Trouve la liste de pages à afficher dans le menu latéral pour la page courante
+function useSubNavContext(): { label: string; items: NavItem[] } | null {
+  const pathname = usePathname();
 
-function isChildActive(pathname: string, href: string) {
-  return pathname === href || pathname.startsWith(`${href}/`);
+  for (const section of navigation) {
+    for (const child of section.children ?? []) {
+      // Ex : /primaire/cycle-moyen -> on affiche les pages du Primaire
+      if (child.children?.length && isActiveRoute(pathname, child.href)) {
+        return { label: child.label, items: child.children };
+      }
+    }
+    if (section.children?.some((c) => c.href === pathname)) {
+      return { label: section.label, items: section.children };
+    }
+  }
+  return null;
 }
 
 export const SubNav = () => {
   const pathname = usePathname();
-  const parentSection = getParentSection(pathname);
+  const context = useSubNavContext();
 
-  if (!parentSection?.children?.length) {
-    return null;
-  }
+  if (!context) return null;
 
   return (
-    <nav className="hidden w-full lg:flex lg:flex-col" aria-label="Navigation secondaire">
+    <nav className="w-full space-y-1" aria-label="Navigation secondaire">
       <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-istm-900">
-        {parentSection.label}
+        {context.label}
       </h2>
-
-      <div className="space-y-1">
-        {parentSection.children.map((child) => {
-          const active = isChildActive(pathname, child.href);
-
-          return (
-            <Link
-              key={child.href}
-              href={child.href}
-              className={[
-                "block rounded-xl px-4 py-2.5 text-sm transition-colors",
-                active
-                  ? "border-r-2 border-red-600 bg-red-50 text-red-600"
-                  : "text-istm-600 hover:bg-istm-50 hover:text-istm-900",
-              ].join(" ")}
-              aria-current={active ? "page" : undefined}
-            >
-              {child.label}
-            </Link>
-          );
-        })}
-      </div>
+      {context.items.map((item) => {
+        const active = pathname === item.href;
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`block px-4 py-2.5 text-sm underline-offset-8 decoration-red-600 decoration-2 transition-colors ${
+              active
+                ? "text-istm-900 underline"
+                : "text-istm-600 hover:text-istm-900 hover:underline"
+            }`}
+          >
+            {item.label}
+          </Link>
+        );
+      })}
     </nav>
   );
 };
 
+// Mobile horizontal subnav selector
 export const MobileSubNav = () => {
   const pathname = usePathname();
-  const parentSection = getParentSection(pathname);
+  const context = useSubNavContext();
 
-  if (!parentSection?.children?.length) {
-    return null;
-  }
+  if (!context) return null;
 
   return (
-    <div className="pb-4 lg:hidden">
-      <div className="inline-flex gap-2 overflow-x-auto">
-        {parentSection.children.map((child) => {
-          const active = isChildActive(pathname, child.href);
-
+    <div className="overflow-x-auto pb-4 lg:hidden">
+      <div className="inline-flex space-x-2">
+        {context.items.map((item) => {
+          const active = pathname === item.href;
           return (
             <Link
-              key={child.href}
-              href={child.href}
-              className={[
-                "whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors",
+              key={item.href}
+              href={item.href}
+              className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 active
                   ? "bg-red-600 text-white"
-                  : "bg-istm-100 text-istm-700 hover:bg-istm-200",
-              ].join(" ")}
-              aria-current={active ? "page" : undefined}
+                  : "bg-istm-100 text-istm-700 hover:bg-istm-200"
+              }`}
             >
-              {child.label}
+              {item.label}
             </Link>
           );
         })}

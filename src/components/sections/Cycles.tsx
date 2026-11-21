@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { images } from "@/data/images";
 
@@ -31,44 +29,61 @@ const cycles = [
 
 export const Cycles = () => {
   return (
-    <section className="py-20 bg-neutral-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-istm-900 mb-4">
-            Nos trois cycles
-          </h2>
-          <p className="text-istm-600 max-w-xl mx-auto">
-            Du primaire au Master, un parcours éducatif complet et cohérent.
+    <section className="py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-istm-600" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-istm-600">
+                Parcours
+              </span>
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold text-istm-900 md:text-4xl">
+              Trois cycles, une même ambition éducative.
+            </h2>
+          </div>
+          <p className="max-w-xl text-base leading-7 text-istm-600">
+            Du primaire au supérieur, chaque étape est conçue pour renforcer les bases,
+            affirmer les projets et sécuriser la progression des apprenants.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cycles.map((c) => (
-            <div
+
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+          {cycles.map((c, index) => (
+            <Link
               key={c.href}
-              className="bg-white rounded-xl overflow-hidden border border-istm-200 hover:shadow-md transition-shadow group"
+              href={c.href}
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-istm-200 bg-white transition-colors duration-200 hover:border-istm-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-600 focus-visible:ring-offset-2"
             >
-              <div className="relative h-48">
+              <span className="absolute inset-x-0 top-0 z-10 h-0.5 origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
+
+              <div className="relative h-56 overflow-hidden">
                 <Image
                   src={c.image}
                   alt={c.title}
-                  className="w-full h-full object-cover"
-                  priority
+                  className="h-full w-full object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                   width={400}
                   height={300}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-istm-600/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-istm-900/70 via-istm-900/10 to-transparent" />
+                <div className="absolute inset-x-6 bottom-5 flex items-end justify-between text-white">
+                  <h3 className="text-2xl font-semibold text-white">{c.title}</h3>
+                  <span className="text-sm font-medium tabular-nums text-white/80">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-istm-900 mb-2 group-hover:text-red-600 transition-colors">
-                  {c.title}
-                </h3>
-                <p className="text-sm text-istm-600 mb-6">{c.description}</p>
-                <Button variant="outline" size="sm" href={c.href}>
-                  <ArrowRight className="mr-1 h-4 w-4" /> En savoir plus
-                </Button>
+
+              <div className="flex flex-1 flex-col p-6">
+                <p className="flex-1 text-sm leading-6 text-istm-600">{c.description}</p>
+                <div className="mt-6 flex items-center justify-between border-t border-istm-100 pt-4 text-sm font-medium text-istm-700">
+                  <span>En savoir plus</span>
+                  <ArrowRight className="h-4 w-4 text-istm-400 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-red-600" />
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

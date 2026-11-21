@@ -1,12 +1,8 @@
-"use client";
-
 import * as React from "react";
 import { PageHero } from "./PageHero";
 import { Breadcrumbs } from "./Breadcrumbs";
-import { SubNav } from "./SubNav";
-import { MobileSubNav } from "./SubNav";
-import { PageNav } from "./PageNav";
-import { CtaBanner } from "./PageNav";
+import { SubNav, MobileSubNav } from "./SubNav";
+import { PageNav, CtaBanner } from "./PageNav";
 
 interface PageTemplateProps {
   title: string;
@@ -24,28 +20,35 @@ export const PageTemplate = ({
   return (
     <div className="flex-1">
       <PageHero title={title} href={href} />
+
       <React.Suspense fallback={null}>
         <Breadcrumbs />
       </React.Suspense>
-      <div className="max-w-7xl mx-auto px-4 py-8">
+
+      <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
         {showSubNav ? (
-          <div className="flex lg:flex-row gap-8">
-            <aside className="hidden lg:flex lg:w-64 lg:shrink-0">
+          <div className="flex gap-10">
+            <aside className="hidden lg:block lg:w-64 lg:shrink-0 lg:self-start lg:sticky lg:top-28">
               <React.Suspense fallback={null}>
                 <SubNav />
               </React.Suspense>
             </aside>
-            <main className="flex-1">{children}</main>
+            <main className="min-w-0 flex-1">{children}</main>
           </div>
         ) : (
           <main>{children}</main>
         )}
-        <React.Suspense fallback={null}>
-          <MobileSubNav />
-        </React.Suspense>
-        <PageNav currentHref={href} />
-        <CtaBanner />
+
+        <div className="mt-10 lg:hidden">
+          <React.Suspense fallback={null}>
+            <MobileSubNav />
+          </React.Suspense>
+        </div>
       </div>
+
+      {/* Ces deux composants ont déjà leur propre conteneur max-w-7xl */}
+      <PageNav currentHref={href} />
+      <CtaBanner />
     </div>
   );
 };

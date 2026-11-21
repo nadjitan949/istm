@@ -3,6 +3,7 @@ export const site = {
   name: "ISTM",
   fullName: "Institut Supérieur de Technologies et de Management",
   shortName: "ISTM",
+  tagline: "Former avec exigence, accompagner avec proximité.",
   // À REMPLACER : adresse postale complète
   address: "Avenue de l'Indépendance, Quartier Administratif, Ville, Pays",
   // À REMPLACER : numéros de téléphone
@@ -31,6 +32,28 @@ export const site = {
     instagram: "https://instagram.com/istm.example",
     linkedin: "https://linkedin.com/school/istm.example",
   },
+  partnershipDomains: [
+    {
+      title: "Santé & action sociale",
+      description:
+        "Immersion métier, études de cas et interventions de professionnels pour relier la formation aux réalités du terrain.",
+    },
+    {
+      title: "Banque, finance & assurance",
+      description:
+        "Contextes concrets pour développer les compétences en comptabilité, gestion, audit et relation client.",
+    },
+    {
+      title: "Numérique & services",
+      description:
+        "Mise en pratique sur des outils collaboratifs, des projets digitaux et des usages professionnels actuels.",
+    },
+    {
+      title: "Entrepreneuriat & PME",
+      description:
+        "Culture du résultat, accompagnement projet et proximité avec les besoins du tissu économique local.",
+    },
+  ],
   // URL du site pour Open Graph et sitemap
   url: "https://istm.example",
 };

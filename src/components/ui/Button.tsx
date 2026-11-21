@@ -30,19 +30,23 @@ type ButtonAsLinkProps = ButtonStyleProps &
 export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 const buttonVariants: Record<ButtonVariant, string> = {
-  default: "bg-istm-600 text-white shadow-sm hover:bg-istm-700",
-  destructive: "bg-red-600 text-white shadow-sm hover:bg-red-700",
-  outline: "border border-istm-200 bg-white text-istm-900 shadow-sm hover:bg-istm-50",
-  secondary: "bg-istm-50 text-istm-700 shadow-sm hover:bg-istm-100",
+  default:
+    "bg-istm-600 text-white shadow-[0_18px_40px_-22px_rgba(11,79,148,0.72)] hover:-translate-y-0.5 hover:bg-istm-700",
+  destructive:
+    "bg-red-600 text-white shadow-[0_18px_40px_-22px_rgba(227,30,36,0.55)] hover:-translate-y-0.5 hover:bg-red-700",
+  outline:
+    "border border-istm-200 bg-white/92 text-istm-900 shadow-[0_18px_38px_-26px_rgba(8,44,78,0.24)] hover:-translate-y-0.5 hover:border-istm-300 hover:bg-white",
+  secondary: "bg-istm-50 text-istm-700 shadow-sm hover:-translate-y-0.5 hover:bg-istm-100",
   ghost: "text-istm-600 hover:bg-istm-50",
   link: "text-istm-600 underline-offset-4 hover:underline",
-  red: "bg-red-600 text-white shadow-sm hover:bg-red-700",
+  red:
+    "bg-red-600 text-white shadow-[0_18px_40px_-22px_rgba(227,30,36,0.55)] hover:-translate-y-0.5 hover:bg-red-700",
 };
 
 const buttonSizes: Record<ButtonSize, string> = {
-  default: "h-11 px-6 py-3 text-sm font-medium",
-  sm: "h-9 px-4 py-2 text-sm font-medium",
-  lg: "h-12 px-8 py-3 text-sm font-medium",
+  default: "h-12 px-6 py-3 text-sm font-semibold",
+  sm: "h-10 px-5 py-2 text-sm font-semibold",
+  lg: "h-14 px-8 py-3 text-[15px] font-semibold",
 };
 
 export function getButtonClassName({
@@ -51,7 +55,7 @@ export function getButtonClassName({
   size = "default",
 }: Pick<ButtonStyleProps, "className" | "variant" | "size">) {
   return cn(
-    "inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+    "inline-flex items-center justify-center rounded-full text-sm font-semibold tracking-[0.01em] transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none",
     buttonVariants[variant],
     buttonSizes[size],
     className

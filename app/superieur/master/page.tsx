@@ -1,6 +1,9 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Clock, Users } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { getFilieresByDiplome } from "@/data/filieres";
-import Link from "next/link";
+import { images } from "@/data/images";
 
 export const metadata = {
   title: "Master - ISTM",
@@ -9,25 +12,88 @@ export const metadata = {
 
 export default function MasterPage() {
   const filieres = getFilieresByDiplome("Master");
+
   return (
     <PageTemplate title="Master" href="/superieur/master" showSubNav>
-      <div className="space-y-8">
-        <p className="text-istm-600 leading-relaxed text-lg">
-          Le Master prépare des cadres capables de diriger des organisations,
-          de piloter la stratégie et de gérer des équipes. Accessible après une
-          Licence (Bac+3).
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {filieres.map((f) => (
-            <div key={f.slug} className="p-6 rounded-xl border border-istm-200 bg-white">
-              <Link href={`/superieur/master/${f.slug}`}>
-                <h3 className="text-lg font-bold text-istm-900 mb-2 group-hover:text-red-600 transition-colors">
-                  {f.nom}
-                </h3>
-              </Link>
-              <p className="text-sm text-istm-600 line-clamp-2">{f.description}</p>
+      <div className="space-y-12">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          <div className="space-y-5">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-istm-600" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-istm-600">
+                Master professionnel
+              </span>
             </div>
-          ))}
+            <p className="text-lg leading-8 text-istm-700">
+              Le Master prépare des cadres capables de diriger des organisations, de piloter la
+              stratégie et de gérer des équipes.
+            </p>
+            <p className="text-base leading-7 text-istm-600">
+              Accessible après une Licence (Bac+3).
+            </p>
+
+            <ul className="divide-y divide-istm-200 overflow-hidden rounded-md border border-istm-200 bg-white">
+              <li className="flex items-center gap-3 px-4 py-3.5">
+                <Clock className="h-4 w-4 shrink-0 text-red-600" />
+                <span className="text-sm font-medium text-istm-900">
+                  Accessible après une Licence (Bac+3)
+                </span>
+              </li>
+              <li className="flex items-center gap-3 px-4 py-3.5">
+                <Users className="h-4 w-4 shrink-0 text-red-600" />
+                <span className="text-sm font-medium text-istm-900">
+                  Formation de cadres : direction, stratégie, équipes
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="relative overflow-hidden rounded-lg border border-istm-200">
+            <Image
+              src={images.superieur}
+              alt="Étudiants en Master à l'ISTM"
+              width={1000}
+              height={720}
+              className="h-64 w-full object-cover md:h-80"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-istm-900/40 via-transparent to-transparent" />
+          </div>
+        </div>
+
+        <div>
+          <div className="mb-8 flex items-end justify-between gap-6 border-b border-istm-200 pb-5">
+            <h2 className="text-xl font-semibold text-istm-900">Filières Master</h2>
+            <span className="text-sm font-medium tabular-nums text-istm-400">
+              {String(filieres.length).padStart(2, "0")} filière{filieres.length > 1 ? "s" : ""}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {filieres.map((f, index) => (
+              <Link
+                key={f.slug}
+                href={`/superieur/master/${f.slug}`}
+                className="group relative flex flex-col overflow-hidden rounded-lg border border-istm-200 bg-white p-6 transition-colors duration-200 hover:border-istm-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-600 focus-visible:ring-offset-2"
+              >
+                <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
+
+                <span className="text-sm font-medium tabular-nums text-istm-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 text-lg font-semibold leading-snug text-istm-900">{f.nom}</h3>
+                <p className="mt-2 line-clamp-2 flex-1 text-sm leading-6 text-istm-600">
+                  {f.description}
+                </p>
+
+                <div className="mt-5 flex items-center justify-between border-t border-istm-100 pt-4 text-sm font-medium text-istm-700">
+                  <span>Voir la filière</span>
+                  <ArrowRight className="h-4 w-4 text-istm-400 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-red-600" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </PageTemplate>

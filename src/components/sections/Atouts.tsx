@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { Stagger } from "@/components/motion/Stagger";
 import { ShieldCheck, Users, BookOpen, Handshake, TrendingUp, Laptop } from "lucide-react";
+import { images } from "@/data/images";
 
 const atouts = [
   {
@@ -38,34 +40,63 @@ const atouts = [
 
 export const Atouts = () => {
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-istm-900 mb-4">
-            Pourquoi choisir l'ISTM ?
-          </h2>
-          <p className="text-istm-600 max-w-xl mx-auto">
-            Six atouts qui font la différence pour votre réussite.
-          </p>
+    <section className="py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-4">
+        <div className="mb-12 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-istm-600" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-istm-600">
+                Nos atouts
+              </span>
+            </div>
+            <h2 className="mt-4 text-3xl font-semibold text-istm-900 md:text-4xl">
+              Pourquoi l&apos;ISTM inspire confiance ?
+            </h2>
+            <p className="mt-6 text-base leading-7 text-istm-600">
+              Au-delà des programmes, c&apos;est l&apos;expérience globale qui fait la différence :
+              qualité du suivi, cadre de travail, professionnalisation et culture du résultat.
+            </p>
+          </div>
+
+          <div className="relative overflow-hidden rounded-lg border border-istm-200">
+            <Image
+              src={images.atouts}
+              alt="Séance de travail encadrée"
+              width={1200}
+              height={780}
+              className="h-full w-full object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-istm-900/70 via-istm-900/10 to-transparent" />
+            <div className="absolute inset-x-6 bottom-5 text-white">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-red-500" />
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
+                  Cadre de réussite
+                </p>
+              </div>
+              <p className="mt-3 max-w-md text-base leading-6 text-white/90">
+                Un environnement clair, rassurant et exigeant pour aider chacun à donner le meilleur.
+              </p>
+            </div>
+          </div>
         </div>
+
         <Stagger>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {atouts.map((a) => {
               const Icon = a.icon;
               return (
                 <div
                   key={a.title}
-                  className="text-center p-6 rounded-xl border border-istm-200 bg-white hover:shadow-lg transition-shadow group"
+                  className="group rounded-lg border border-istm-200 bg-white p-6 transition-colors duration-200 hover:border-istm-400"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-istm-50 text-istm-600 flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-md bg-istm-100 text-istm-600 transition-colors duration-200 group-hover:bg-istm-600 group-hover:text-white">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-base font-bold text-istm-900 mb-2">
-                    {a.title}
-                  </h3>
-                  <p className="text-sm text-istm-600 leading-relaxed">
-                    {a.description}
-                  </p>
+                  <h3 className="mt-5 text-lg font-semibold text-istm-900">{a.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-istm-600">{a.description}</p>
                 </div>
               );
             })}

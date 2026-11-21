@@ -16,26 +16,27 @@ export const PageHero = ({ title, href, className }: PageHeroProps) => {
   const imageUrl = href ? pageHeroImages[href] ?? images.hero : images.hero;
 
   return (
-    <div className={["relative overflow-hidden", className].filter(Boolean).join(" ")}>
+    <div className={["relative overflow-hidden bg-istm-900", className].filter(Boolean).join(" ")}>
       {imageUrl && (
         <Image
           src={imageUrl}
           alt={`Bannière ${title}`}
-          className="w-full h-64 object-cover"
+          className="h-80 w-full object-cover md:h-88"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
           priority
           fill
           style={{ objectFit: "cover" }}
         />
       )}
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="relative px-4 py-12 md:py-16 max-w-7xl mx-auto">
+      <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,44,78,0.92)_0%,rgba(8,44,78,0.75)_45%,rgba(11,79,148,0.36)_100%)]" />
+      <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="max-w-3xl"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h1 className="mt-6 text-4xl text-white md:text-6xl">
             {title}
           </h1>
         </motion.div>

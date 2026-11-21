@@ -42,7 +42,10 @@ export const Breadcrumbs = () => {
   }
 
   return (
-    <nav className="flex items-center gap-1 text-xs text-istm-500 mb-6" aria-label="Fil d'Ariane">
+    <nav
+      className="mb-8 flex flex-wrap items-center gap-1 text-xs uppercase tracking-[0.16em] text-istm-500"
+      aria-label="Fil d'Ariane"
+    >
       {items.map((item, idx) => (
         <React.Fragment key={item.href}>
           {idx > 0 && <ChevronRight className="h-3 w-3 mx-1" aria-hidden="true" />}

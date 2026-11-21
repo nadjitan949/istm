@@ -2,18 +2,33 @@
 
 import { motion } from "framer-motion";
 import * as React from "react";
+import { cn } from "@/components/ui/Button";
 
 export interface CounterProps {
   value: number;
   label: string;
   className?: string;
+  valueClassName?: string;
+  labelClassName?: string;
   suffix?: string;
   prefix?: string;
   duration?: number;
 }
 
 export const Counter = React.forwardRef<HTMLDivElement, CounterProps>(
-  ({ value, label, className, suffix = "", prefix = "", duration = 1.5 }, ref) => {
+  (
+    {
+      value,
+      label,
+      className,
+      valueClassName,
+      labelClassName,
+      suffix = "",
+      prefix = "",
+      duration = 1.5,
+    },
+    ref
+  ) => {
     const [count, setCount] = React.useState(0);
 
     React.useEffect(() => {
@@ -42,10 +57,17 @@ export const Counter = React.forwardRef<HTMLDivElement, CounterProps>(
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-3xl font-bold text-istm-600">
-          {prefix}{count}{suffix}
+        <div
+          className={cn(
+            "text-4xl font-semibold tracking-tight text-istm-600",
+            valueClassName
+          )}
+        >
+          {prefix}
+          {new Intl.NumberFormat("fr-FR").format(count)}
+          {suffix}
         </div>
-        <div className="text-sm text-istm-500">{label}</div>
+        <div className={cn("mt-2 text-sm text-istm-500", labelClassName)}>{label}</div>
       </motion.div>
     );
   }

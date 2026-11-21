@@ -17,9 +17,11 @@
 
   --color-neutral-900: #0f1b2d;
   --color-neutral-50: #f6f8fb;
+}
 
-  --font-title: "Playfair Display", serif;
-  --font-body: "Inter", sans-serif;
+/* Poppins partout : --font-poppins est fournie par next/font dans app/layout.tsx */
+@theme inline {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -27,20 +29,26 @@
   --foreground: #0f1b2d;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-title);
-  font-weight: 600;
-  color: var(--foreground);
+  /* Pas de couleur forcée ici : sinon les titres "text-white" deviennent sombres */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
