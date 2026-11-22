@@ -11,7 +11,7 @@ export const Presentation = () => {
           <div className="relative order-2 lg:order-1">
             <div className="relative overflow-hidden rounded-lg border border-istm-200">
               <Image
-                src={images.presentation}
+                src={images.home.home1}
                 alt="Campus de l'ISTM"
                 className="h-full w-full object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

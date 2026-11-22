@@ -9,21 +9,21 @@ const cycles = [
     href: "/primaire",
     description:
       "Cycle préparatoire, élémentaire et moyen. Des apprentissages fondés sur l'éveil, la curiosité et la confiance en soi.",
-    image: images.primaire,
+    image: images.home.primaire,
   },
   {
     title: "Secondaire",
     href: "/secondaire",
     description:
       "Collège et lycée (séries F, G1 et G2). Préparation aux examens et orientation vers l'enseignement supérieur.",
-    image: images.secondaire,
+    image: images.home.secondaire,
   },
   {
     title: "Supérieur",
     href: "/superieur",
     description:
       "BTS, BT, Licence et Master. Des filières professionnalisantes pour une insertion rapide sur le marché du travail.",
-    image: images.superieur,
+    image: images.home.superieur,
   },
 ];
 

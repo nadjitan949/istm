@@ -5,15 +5,13 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-
-const unsplash = (id: string) => `https://images.unsplash.com/${id}?w=1920&q=80`;
+import { images } from "@/data/images";
 
 // Photos du carousel : remplace l'identifiant "photo-..." pour changer une image
 const slides = [
-  { src: unsplash("photo-1541339907198-e08854caf25c"), alt: "Le campus de l'ISTM" },
-  { src: unsplash("photo-1523050854058-8df90110c9f1"), alt: "Étudiants diplômés" },
-  { src: unsplash("photo-1522202176988-66273c2fd55f"), alt: "Étudiants qui travaillent ensemble" },
-  { src: unsplash("photo-1503676260728-1c00da094a0b"), alt: "Élèves en classe" },
+  { src: images.heroCarousel.primaire, alt: "Élèves du primaire en classe" },
+  { src: images.heroCarousel.secondaire, alt: "Élève en séance de travail" },
+  { src: images.heroCarousel.superieur, alt: "Élèves attentifs en classe" },
 ];
 
 const stats = [

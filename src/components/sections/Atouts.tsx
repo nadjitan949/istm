@@ -61,7 +61,7 @@ export const Atouts = () => {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.atouts}
+              src={images.home.home2}
               alt="Séance de travail encadrée"
               width={1200}
               height={780}

@@ -1,12 +1,27 @@
-// Banque visuelle éditoriale utilisée en attendant les photos officielles de l'ISTM.
-// Toutes les images ci-dessous sont de vraies photographies (pas de placeholders graphiques).
-
 const unsplash = (id: string, width = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`;
 
 export const images = {
   logo: "/brand/istm-logo.jpeg",
   favicon: "/brand/istm-logo.jpeg",
+  heroCarousel: {
+    primaire: "/images/pexels-armstrong-opulency-185550616-12448839.jpg",
+    secondaire: "/images/pexels-dialophotography-16334503.jpg",
+    superieur: "/images/pexels-scott-ehimare-2175050-20333029.jpg",
+  },
+  home: {
+    home1: "/images/home/home1.jpg",
+    home2: "/images/home/home2.jpg",
+    primaire: "/images/home/primaire.jpg",
+    secondaire: "/images/home/secondaire.jpg",
+    superieur: "/images/home/superieur.jpg",
+  },
+  header: {
+    ecole: "/images/header/menuecole.jpg",
+    formation: "/images/header/menuformation.jpg",
+    admissions: "/images/header/menuadmission.jpg",
+    vieScolaire: "/images/header/menuviescolaire.jpg",
+  },
   hero: unsplash("photo-1523240795612-9a054b0db644", 1800),
   heroSecondary: unsplash("photo-1522202176988-66273c2fd55f", 1200),
   heroDetail: unsplash("photo-1524995997946-a1c2e315a42f", 900),
@@ -19,7 +34,6 @@ export const images = {
   direction: unsplash("photo-1573497019440-1c04de6a68a1", 1200),
   valeurs: unsplash("photo-1544717305-2782549b5136", 1200),
   equipe: unsplash("photo-1522202176988-66273c2fd55f", 1200),
-
   pageHero: {
     "/ecole/presentation": unsplash("photo-1498243691581-b145c3f54a5a", 1800),
     "/ecole/mot-de-la-direction": unsplash("photo-1573497019440-1c04de6a68a1", 1800),
@@ -54,5 +68,4 @@ export const images = {
     "/vie-scolaire/reglement": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
     "/contact": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
   },
-
 } as const;

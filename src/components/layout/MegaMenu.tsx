@@ -13,49 +13,49 @@ import {
   type NavItem,
 } from "@/data/navigation";
 import { site } from "@/data/site";
+import { images } from "@/data/images";
 import { MobileDrawer } from "./MobileDrawer";
 
 const LOGO_SRC = "/brand/istm-logo.jpeg";
-
-const unsplash = (id: string) => `https://images.unsplash.com/${id}?w=800&q=80`;
+const formationMenuImage = images.header.formation;
 
 type Featured = { image: string; title: string; href: string; description: string };
 
 // Image affichée dans chaque sous-menu (clé = lien de la rubrique ou du cycle)
-// Pour changer une photo : remplace l'identifiant "photo-..." par celui d'Unsplash
+// Les trois niveaux de formation gardent la même image au survol.
 const FEATURED: Record<string, Featured> = {
   "/ecole": {
-    image: unsplash("photo-1541339907198-e08854caf25c"),
+    image: images.header.ecole,
     title: "Découvrir l'ISTM",
     href: "/ecole/presentation",
     description: "Présentation, direction, valeurs et partenaires de l'établissement.",
   },
   "/primaire": {
-    image: unsplash("photo-1522202176988-66273c2fd55f"),
+    image: formationMenuImage,
     title: "Cycle primaire",
     href: "/primaire",
     description: "Des bases solides pour apprendre, grandir et s'épanouir dès les premières années.",
   },
   "/secondaire": {
-    image: unsplash("photo-1522202176988-66273c2fd55f"),
+    image: formationMenuImage,
     title: "Collège & lycée",
     href: "/secondaire",
     description: "Préparer les examens, l'orientation et la poursuite d'études dans un cadre exigeant.",
   },
   "/superieur": {
-    image: unsplash("photo-1522202176988-66273c2fd55f"),
+    image: formationMenuImage,
     title: "Formations supérieures",
     href: "/superieur",
     description: "BTS, BT, Licence et Master pour construire un parcours professionnalisant.",
   },
   "/admissions": {
-    image: unsplash("photo-1544717297-fa652477776c"),
+    image: images.header.admissions,
     title: "Admissions & inscription",
     href: "/admissions",
     description: "Conditions, procédure, frais et calendrier d'inscription.",
   },
   "/vie-scolaire": {
-    image: unsplash("photo-1522202176988-66273c2fd55f"),
+    image: images.header.vieScolaire,
     title: "Vie scolaire",
     href: "/vie-scolaire",
     description: "Clubs, sport, bibliothèque et cadre de vie au quotidien.",
