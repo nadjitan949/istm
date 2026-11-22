@@ -34,7 +34,7 @@ export default function ValeursPage() {
       <div className="space-y-12">
         <div className="relative overflow-hidden rounded-lg border border-istm-200">
           <Image
-            src={images.atouts}
+            src={images.ecole.valeurs}
             alt="Étudiants de l'ISTM en séance de travail"
             width={1400}
             height={560}

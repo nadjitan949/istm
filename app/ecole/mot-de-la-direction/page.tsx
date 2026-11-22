@@ -46,7 +46,7 @@ export default function DirectionPage() {
         <div className="order-1 lg:order-2">
           <div className="relative overflow-hidden rounded-lg border border-istm-200 lg:sticky lg:top-28">
             <Image
-              src={images.presentation}
+              src={images.ecole.motDirection}
               alt="Le Directeur Général de l'ISTM"
               width={640}
               height={800}

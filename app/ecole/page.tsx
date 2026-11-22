@@ -16,15 +16,15 @@ const items = [
     href: "/ecole/presentation",
     description: "Histoire, identité et chiffres clés de l'ISTM.",
     icon: School,
-    image: images.presentation,
-    alt: "Campus de l'ISTM",
+    image: images.ecole.presentation,
+    alt: "Présentation de l'ISTM",
   },
   {
     title: "Mot de la direction",
     href: "/ecole/mot-de-la-direction",
     description: "Le message de notre directrice générale.",
     icon: MessageSquareQuote,
-    image: images.atouts,
+    image: images.ecole.motDirection,
     alt: "La direction de l'ISTM",
   },
   {
@@ -32,7 +32,7 @@ const items = [
     href: "/ecole/valeurs",
     description: "Mission, vision et valeurs qui nous guident.",
     icon: Compass,
-    image: images.superieur,
+    image: images.ecole.valeurs,
     alt: "Étudiants de l'ISTM",
   },
 ];
@@ -63,7 +63,7 @@ export default function EcolePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src={images.ecole.etablissement}
               alt="Campus de l'ISTM"
               width={1000}
               height={720}

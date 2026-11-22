@@ -48,7 +48,7 @@ export default function PresentationPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src={images.ecole.presentation}
               alt="Campus de l'ISTM"
               width={900}
               height={720}
