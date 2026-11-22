@@ -417,17 +417,25 @@ export function Header() {
         <Link
           href="/"
           onClick={() => setOpenMenu(null)}
-          className="flex shrink-0 items-center"
+          className="flex min-w-0 shrink-0 items-center gap-2.5 sm:gap-3"
           aria-label={`${site.shortName} - Accueil`}
         >
           <Image
             src={LOGO_SRC}
             alt={`Logo ${site.shortName}`}
-            width={200}
-            height={56}
-            className="h-11 w-auto"
+            width={300}
+            height={300}
+            className="h-14 w-14 shrink-0 rounded-lg object-contain sm:h-20 sm:w-20"
             priority
           />
+          <span className="flex min-w-0 flex-col">
+            <span className="max-w-44 text-[11px] font-bold leading-tight text-istm-900 sm:max-w-52 sm:text-xs">
+              {site.shortName}
+            </span>
+            <span className="mt-1 max-w-44 text-[9px] leading-tight text-istm-600 sm:max-w-52 sm:text-[10px]">
+              {site.tagline}
+            </span>
+          </span>
         </Link>
 
         <DesktopNav

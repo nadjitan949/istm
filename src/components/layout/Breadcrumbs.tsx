@@ -42,25 +42,27 @@ export const Breadcrumbs = () => {
   }
 
   return (
-    <nav
-      className="mb-8 flex flex-wrap items-center gap-1 text-xs uppercase tracking-[0.16em] text-istm-500"
-      aria-label="Fil d'Ariane"
-    >
-      {items.map((item, idx) => (
-        <React.Fragment key={item.href}>
-          {idx > 0 && <ChevronRight className="h-3 w-3 mx-1" aria-hidden="true" />}
-          {idx < items.length - 1 ? (
-            <Link
-              href={item.href}
-              className="hover:text-istm-900 transition-colors"
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <span className="text-istm-900 font-medium">{item.label}</span>
-          )}
-        </React.Fragment>
-      ))}
-    </nav>
+    <div className="mx-auto max-w-7xl px-4 pt-6 md:pt-8">
+      <nav
+        className="flex flex-wrap items-center gap-1 text-xs uppercase tracking-[0.16em] text-istm-500"
+        aria-label="Fil d'Ariane"
+      >
+        {items.map((item, idx) => (
+          <React.Fragment key={item.href}>
+            {idx > 0 && <ChevronRight className="mx-1 h-3 w-3" aria-hidden="true" />}
+            {idx < items.length - 1 ? (
+              <Link
+                href={item.href}
+                className="transition-colors hover:text-istm-900"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <span className="font-medium text-istm-900">{item.label}</span>
+            )}
+          </React.Fragment>
+        ))}
+      </nav>
+    </div>
   );
 };
