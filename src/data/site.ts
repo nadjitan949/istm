@@ -55,5 +55,5 @@ export const site = {
     },
   ],
   // URL du site pour Open Graph et sitemap
-  url: "https://istm.example",
+  url: "https://istm.com",
 };
