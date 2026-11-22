@@ -42,7 +42,7 @@ export const Atouts = () => {
   return (
     <section className="py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="mb-12 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+        <div className="mb-12 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
           <div>
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-istm-600" />

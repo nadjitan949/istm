@@ -59,9 +59,15 @@ export const Footer = () => {
                 <MapPin className="h-4 w-4 text-istm-500" />
                 <span>{site.address}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-4 w-4 text-istm-500" />
-                <a href={`tel:${site.phone}`} className="hover:text-white transition-colors">{site.phone}</a>
+              <div className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-istm-500" />
+                <div className="flex flex-col gap-1">
+                  {site.phones.map((phone) => (
+                    <a key={phone.dial} href={`tel:${phone.dial}`} className="transition-colors hover:text-white">
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-istm-500" />

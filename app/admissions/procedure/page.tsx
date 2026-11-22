@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 const steps = [
-  "Retirer ou remplir le formulaire d'inscription en ligne",
+  "Retirer le dossier d'inscription auprès du service des admissions",
   "Déposer le dossier complet au service des admissions",
   "Passer un entretien de motivation (supérieur)",
   "Recevoir la réponse d'admission",

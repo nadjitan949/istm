@@ -31,7 +31,7 @@ const FEATURED: Record<string, Featured> = {
     description: "Présentation, direction, valeurs et partenaires de l'établissement.",
   },
   "/primaire": {
-    image: unsplash("photo-1503676260728-1c00da094a0b"),
+    image: unsplash("photo-1522202176988-66273c2fd55f"),
     title: "Cycle primaire",
     href: "/primaire",
     description: "Des bases solides pour apprendre, grandir et s'épanouir dès les premières années.",
@@ -43,7 +43,7 @@ const FEATURED: Record<string, Featured> = {
     description: "Préparer les examens, l'orientation et la poursuite d'études dans un cadre exigeant.",
   },
   "/superieur": {
-    image: unsplash("photo-1523050854058-8df90110c9f1"),
+    image: unsplash("photo-1522202176988-66273c2fd55f"),
     title: "Formations supérieures",
     href: "/superieur",
     description: "BTS, BT, Licence et Master pour construire un parcours professionnalisant.",
@@ -59,12 +59,6 @@ const FEATURED: Record<string, Featured> = {
     title: "Vie scolaire",
     href: "/vie-scolaire",
     description: "Clubs, sport, bibliothèque et cadre de vie au quotidien.",
-  },
-  "/actualites": {
-    image: unsplash("photo-1556761175-5973dc0f32e7"),
-    title: "À la une",
-    href: "/actualites",
-    description: "Les dernières nouvelles et les événements de l'ISTM.",
   },
 };
 

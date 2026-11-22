@@ -6,7 +6,7 @@ import { images } from "@/data/images";
 
 export const metadata = {
   title: "Secondaire - ISTM",
-  description: "Collège, lycée et séries A, C, D, G.",
+  description: "Collège, lycée et séries F, G1 et G2.",
 };
 
 const niveaux = [
@@ -21,7 +21,7 @@ const niveaux = [
   {
     title: "Lycée",
     href: "/secondaire/lycee",
-    description: "Séries A, C, D, G. Préparation au Baccalauréat.",
+    description: "Séries F, G1 et G2. Préparation au Baccalauréat.",
     icon: GraduationCap,
     image: images.secondaire,
     alt: "Lycéens de l'ISTM",
@@ -42,7 +42,7 @@ export default function SecondairePage() {
             </div>
             <p className="text-lg leading-8 text-istm-700">
               Le secondaire de l&apos;ISTM comprend le collège (6ème à 3ème) et le lycée (2nde à
-              Terminale) avec les séries A, C, D et G.
+              Terminale) avec les séries F, G1 et G2.
             </p>
             <p className="text-base leading-7 text-istm-600">
               Nous préparons nos élèves aux examens d&apos;État et à l&apos;orientation post-bac.

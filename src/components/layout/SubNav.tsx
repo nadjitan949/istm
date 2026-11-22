@@ -10,6 +10,11 @@ function useSubNavContext(): { label: string; items: NavItem[] } | null {
   const pathname = usePathname();
 
   for (const section of navigation) {
+    // Les pages d'accueil de rubrique affichent aussi leurs liens enfants.
+    if (section.href === pathname && section.children?.length) {
+      return { label: section.label, items: section.children };
+    }
+
     for (const child of section.children ?? []) {
       // Ex : /primaire/cycle-moyen -> on affiche les pages du Primaire
       if (child.children?.length && isActiveRoute(pathname, child.href)) {

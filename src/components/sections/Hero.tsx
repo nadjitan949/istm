@@ -71,8 +71,8 @@ export const Hero = () => {
       </div>
 
       {/* Voile sombre : le texte blanc reste lisible quelle que soit la photo */}
-      <div className="absolute inset-0 bg-istm-900/55" />
-      <div className="absolute inset-0 bg-linear-to-r from-istm-900/90 via-istm-900/60 to-transparent" />
+      <div className="absolute inset-0 bg-istm-900/35" />
+      <div className="absolute inset-0 bg-linear-to-r from-istm-900/75 via-istm-900/40 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-4 pb-28 pt-20 md:pb-32 md:pt-28 lg:pt-36">
         <motion.div
@@ -104,16 +104,21 @@ export const Hero = () => {
               variant="outline"
               size="lg"
               className="w-full rounded-md border-white bg-transparent text-white hover:bg-white hover:text-istm-900 sm:w-auto"
-              href="/admissions/pre-inscription"
+              href="/contact"
             >
-              Pré-inscription
+              Contact
             </Button>
           </div>
 
-          {/* Chiffres clés : simple ligne, sans blocs */}
-          <div className="mt-14 grid max-w-xl grid-cols-3 border-t border-white/30 pt-8">
+          {/* Chiffres clés encadrés et centrés */}
+          <div className="mt-14 grid max-w-xl grid-cols-3 overflow-hidden rounded-lg border border-white/40 bg-istm-900/20 text-center backdrop-blur-sm">
             {stats.map((stat, i) => (
-              <div key={stat.label} className={i > 0 ? "border-l border-white/30 pl-5" : ""}>
+              <div
+                key={stat.label}
+                className={`flex flex-col items-center justify-center px-2 py-4 md:px-5 md:py-5 ${
+                  i > 0 ? "border-l border-white/30" : ""
+                }`}
+              >
                 <p className="text-2xl font-semibold text-white md:text-3xl">{stat.value}</p>
                 <p className="mt-1 text-xs leading-snug text-white/80 md:text-sm">{stat.label}</p>
               </div>

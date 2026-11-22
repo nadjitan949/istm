@@ -5,7 +5,6 @@ import {
   CalendarDays,
   CircleHelp,
   ClipboardCheck,
-  FilePenLine,
   ListOrdered,
   Wallet,
 } from "lucide-react";
@@ -47,12 +46,6 @@ const items = [
     href: "/admissions/faq",
     desc: "Questions fréquentes",
     icon: CircleHelp,
-  },
-  {
-    title: "Pré-inscription en ligne",
-    href: "/admissions/pre-inscription",
-    desc: "Formulaire de pré-inscription",
-    icon: FilePenLine,
   },
 ];
 

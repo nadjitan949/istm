@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { CheckCircle2, Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { site } from "@/data/site";
 import { images } from "@/data/images";
@@ -15,15 +14,25 @@ const labelClass = "mb-1.5 block text-sm font-medium text-istm-700";
 
 const infos = [
   { label: "Adresse", value: site.address, icon: MapPin },
-  { label: "Téléphone", value: site.phone, icon: Phone },
+  {
+    label: "Téléphone",
+    value: (
+      <span className="mt-1 flex flex-col gap-1 text-sm leading-6 text-istm-900">
+        {site.phones.map((phone) => (
+          <a key={phone.dial} href={`tel:${phone.dial}`} className="hover:text-red-600">
+            {phone.display}
+          </a>
+        ))}
+      </span>
+    ),
+    icon: Phone,
+  },
   { label: "E-mail", value: site.email, icon: Mail },
   { label: "Horaires", value: site.hours, icon: Clock },
 ];
 
 export function ContactClient() {
-  const [submitted, setSubmitted] = React.useState(false);
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [error, setError] = React.useState<string | null>(null);
+  const [notice, setNotice] = React.useState(false);
   const [formData, setFormData] = React.useState({
     nom: "",
     email: "",
@@ -37,65 +46,10 @@ export function ContactClient() {
       setFormData((current) => ({ ...current, [key]: event.target.value }));
     };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Une erreur est survenue lors de l'envoi du message.");
-      }
-
-      setSubmitted(true);
-      setFormData({ nom: "", email: "", sujet: "", message: "" });
-    } catch (submissionError) {
-      setError(
-        submissionError instanceof Error
-          ? submissionError.message
-          : "Impossible d'envoyer le message pour le moment."
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+    setNotice(true);
   };
-
-  if (submitted) {
-    return (
-      <PageTemplate title="Message envoyé" href="/contact" showSubNav={false}>
-        <div className="mx-auto max-w-2xl rounded-lg border border-istm-200 border-t-2 border-t-red-600 bg-white px-8 py-14 text-center">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-md bg-istm-100 text-istm-600">
-            <CheckCircle2 className="h-7 w-7" />
-          </div>
-          <h2 className="mt-6 text-2xl font-semibold text-istm-900">Merci pour votre message</h2>
-          <p className="mt-3 text-base leading-7 text-istm-600">
-            Notre équipe vous répondra dans les plus brefs délais.
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center rounded-md bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
-            >
-              Retour à l&apos;accueil
-            </Link>
-            <button
-              type="button"
-              onClick={() => setSubmitted(false)}
-              className="inline-flex items-center justify-center rounded-md border border-istm-200 px-6 py-3 text-sm font-medium text-istm-700 transition-colors duration-200 hover:border-istm-400 hover:text-istm-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-600 focus-visible:ring-offset-2"
-            >
-              Envoyer un autre message
-            </button>
-          </div>
-        </div>
-      </PageTemplate>
-    );
-  }
 
   return (
     <PageTemplate title="Contact" href="/contact" showSubNav={false}>
@@ -117,13 +71,12 @@ export function ContactClient() {
             </p>
           </div>
 
-          <div aria-live="polite">
-            {error ? (
-              <div className="rounded-md border border-red-200 border-l-2 border-l-red-600 bg-red-50 px-4 py-3 text-sm text-red-700">
-                {error}
-              </div>
-            ) : null}
-          </div>
+          {notice ? (
+            <p role="status" className="rounded-md border border-istm-200 bg-istm-50 px-4 py-3 text-sm leading-6 text-istm-700">
+              L&apos;envoi depuis ce formulaire n&apos;est pas encore disponible. Vous pouvez nous joindre
+              par téléphone ou par e-mail avec les coordonnées indiquées à côté.
+            </p>
+          ) : null}
 
           <div className="space-y-5">
             <div>
@@ -192,10 +145,9 @@ export function ContactClient() {
 
             <button
               type="submit"
-              disabled={isSubmitting}
               className="inline-flex w-full items-center justify-center rounded-md bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+              Envoyer
             </button>
           </div>
         </form>
@@ -225,7 +177,11 @@ export function ContactClient() {
                     <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-istm-500">
                       {info.label}
                     </h3>
-                    <p className="mt-1 text-sm leading-6 text-istm-900">{info.value}</p>
+                    {info.label === "Téléphone" ? (
+                      info.value
+                    ) : (
+                      <p className="mt-1 text-sm leading-6 text-istm-900">{info.value}</p>
+                    )}
                   </div>
                 </li>
               );

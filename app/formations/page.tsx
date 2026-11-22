@@ -22,7 +22,7 @@ export default function FormationsPage() {
   const cycles = navigation.find((item) => item.href === "/formations")?.children ?? [];
 
   return (
-    <PageTemplate title="Formations" href="/formations" showSubNav={false}>
+    <PageTemplate title="Formations" href="/formations">
       <div className="space-y-12">
         <div className="max-w-3xl space-y-5">
           <div className="flex items-center gap-3">

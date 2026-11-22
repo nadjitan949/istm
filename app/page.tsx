@@ -4,7 +4,6 @@ import { Presentation } from "@/components/sections/Presentation";
 import { KeyFigures } from "@/components/sections/KeyFigures";
 import { Cycles } from "@/components/sections/Cycles";
 import { Atouts } from "@/components/sections/Atouts";
-import { ActualitesSection } from "@/components/sections/ActualitesSection";
 import { PartnersSection } from "@/components/sections/PartnersSection";
 import { CtaBanner } from "@/components/layout/PageNav";
 
@@ -23,7 +22,6 @@ export default function Home() {
       <KeyFigures />
       <Cycles />
       <Atouts />
-      <ActualitesSection />
       <PartnersSection />
       <CtaBanner />
     </main>

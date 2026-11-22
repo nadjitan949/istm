@@ -15,7 +15,7 @@ const cycles = [
     title: "Secondaire",
     href: "/secondaire",
     description:
-      "Collège et lycée (séries A, C, D, G). Préparation aux examens et orientation vers l'enseignement supérieur.",
+      "Collège et lycée (séries F, G1 et G2). Préparation aux examens et orientation vers l'enseignement supérieur.",
     image: images.secondaire,
   },
   {

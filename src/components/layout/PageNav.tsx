@@ -72,21 +72,15 @@ export const CtaBanner = () => {
             Prêt à rejoindre l&apos;ISTM ?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-istm-100/80">
-            Lancez votre pré-inscription et échangez avec notre équipe pour construire un parcours
-            adapté à votre projet.
+            Notre équipe est à votre écoute pour répondre à vos questions et vous accompagner dans
+            votre choix de formation.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
-              href="/admissions/pre-inscription"
+              href="/contact"
               className="inline-flex items-center justify-center rounded-md bg-red-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-istm-900"
             >
-              Pré-inscription en ligne
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:border-white/50 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-istm-900"
-            >
-              Nous contacter
+              Contact
             </Link>
           </div>
         </div>

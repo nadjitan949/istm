@@ -5,14 +5,13 @@ import { images } from "@/data/images";
 
 export const metadata = {
   title: "Lycée - ISTM",
-  description: "Séries A, C, D, G et Baccalauréat.",
+  description: "Séries F, G1 et G2 du Baccalauréat.",
 };
 
 const series = [
-  { letter: "A", title: "Lettres et langues" },
-  { letter: "C", title: "Mathématiques et sciences physiques" },
-  { letter: "D", title: "Sciences de la vie et de la terre" },
-  { letter: "G", title: "Sciences de gestion et économie" },
+  { letter: "F", title: "Filière industrielle (F1 à F4)" },
+  { letter: "G1", title: "Techniques administratives" },
+  { letter: "G2", title: "Techniques quantitatives de gestion" },
 ];
 
 export default function LyceePage() {
@@ -28,7 +27,7 @@ export default function LyceePage() {
               </span>
             </div>
             <p className="text-lg leading-8 text-istm-700">
-              Le lycée de l&apos;ISTM propose les séries A, C, D et G.
+              Le lycée de l&apos;ISTM propose les séries F, G1 et G2.
             </p>
             <p className="text-base leading-7 text-istm-600">
               Nos étudiants sont préparés au Baccalauréat et à l&apos;orientation vers

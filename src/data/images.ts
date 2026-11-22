@@ -19,14 +19,12 @@ export const images = {
   direction: unsplash("photo-1573497019440-1c04de6a68a1", 1200),
   valeurs: unsplash("photo-1544717305-2782549b5136", 1200),
   equipe: unsplash("photo-1522202176988-66273c2fd55f", 1200),
-  infrastructures: unsplash("photo-1498243691581-b145c3f54a5a", 1200),
 
   pageHero: {
     "/ecole/presentation": unsplash("photo-1498243691581-b145c3f54a5a", 1800),
     "/ecole/mot-de-la-direction": unsplash("photo-1573497019440-1c04de6a68a1", 1800),
     "/ecole/valeurs": unsplash("photo-1544717305-2782549b5136", 1800),
     "/ecole/equipe": unsplash("photo-1522202176988-66273c2fd55f", 1800),
-    "/ecole/infrastructures": unsplash("photo-1498243691581-b145c3f54a5a", 1800),
     "/ecole/partenaires": unsplash("photo-1552664730-d307ca884978", 1800),
     "/primaire": unsplash("photo-1509062522246-3755977927d7", 1800),
     "/primaire/cycle-preparatoire": unsplash("photo-1509062522246-3755977927d7", 1800),
@@ -49,34 +47,12 @@ export const images = {
     "/admissions/frais": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
     "/admissions/calendrier": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
     "/admissions/faq": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
-    "/admissions/pre-inscription": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
     "/vie-scolaire": unsplash("photo-1522202176988-66273c2fd55f", 1800),
     "/vie-scolaire/clubs": unsplash("photo-1522202176988-66273c2fd55f", 1800),
     "/vie-scolaire/sport": unsplash("photo-1517649763962-0c623066013b", 1800),
     "/vie-scolaire/bibliotheque": unsplash("photo-1524995997946-a1c2e315a42f", 1800),
     "/vie-scolaire/reglement": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
-    "/actualites": unsplash("photo-1542744173-8e7e53415bb0", 1800),
-    "/actualites/evenements": unsplash("photo-1511578314322-379afb476865", 1800),
-    "/galerie": unsplash("photo-1498243691581-b145c3f54a5a", 1800),
     "/contact": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
   },
 
-  galerie: {
-    campus: [
-      unsplash("photo-1498243691581-b145c3f54a5a", 900),
-      unsplash("photo-1523050854058-8df90110c9f1", 900),
-    ],
-    cours: [
-      unsplash("photo-1509062522246-3755977927d7", 900),
-      unsplash("photo-1522202176988-66273c2fd55f", 900),
-    ],
-    evenements: [
-      unsplash("photo-1511578314322-379afb476865", 900),
-      unsplash("photo-1552664730-d307ca884978", 900),
-    ],
-    sport: [
-      unsplash("photo-1517649763962-0c623066013b", 900),
-      unsplash("photo-1509062522246-3755977927d7", 900),
-    ],
-  },
 } as const;

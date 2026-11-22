@@ -7,7 +7,7 @@ export const Presentation = () => {
   return (
     <section className="py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
           <div className="relative order-2 lg:order-1">
             <div className="relative overflow-hidden rounded-lg border border-istm-200">
               <Image

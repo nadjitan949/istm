@@ -4,7 +4,7 @@ import { images } from "@/data/images";
 
 export const metadata = {
   title: "Mot de la direction - ISTM",
-  description: "Le message de notre directrice générale.",
+  description: "Le message du Directeur Général de l'ISTM.",
 };
 
 export default function DirectionPage() {
@@ -38,7 +38,7 @@ export default function DirectionPage() {
               « Ensemble, construisons l&apos;avenir de nos jeunes. »
             </p>
             <footer className="mt-4 text-sm font-semibold text-istm-700">
-              La Directrice Générale
+              Le Directeur Général
             </footer>
           </blockquote>
         </div>
@@ -47,7 +47,7 @@ export default function DirectionPage() {
           <div className="relative overflow-hidden rounded-lg border border-istm-200 lg:sticky lg:top-28">
             <Image
               src={images.presentation}
-              alt="La Directrice Générale de l'ISTM"
+              alt="Le Directeur Général de l'ISTM"
               width={640}
               height={800}
               className="aspect-4/5 w-full object-cover"
@@ -55,9 +55,9 @@ export default function DirectionPage() {
               priority
             />
             <div className="border-t-2 border-red-600 bg-white px-5 py-4">
-              <p className="text-sm font-semibold text-istm-900">La Directrice Générale</p>
+              <p className="text-sm font-semibold text-istm-900">MOUNI Ouyi</p>
               <p className="mt-0.5 text-xs text-istm-500">
-                Institut Supérieur de Technologies et de Management
+                Le Directeur Général
               </p>
             </div>
           </div>
