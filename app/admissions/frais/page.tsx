@@ -40,7 +40,7 @@ export default function FraisPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src="https://images.unsplash.com/photo-1639945313904-38c513d2f7d1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Service des admissions de l'ISTM"
               width={1000}
               height={720}

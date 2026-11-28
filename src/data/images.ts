@@ -44,6 +44,22 @@ export const images = {
     superieur:
       "https://plus.unsplash.com/premium_photo-1714211554582-8cfd9d261452?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
+  primaireCycles: {
+    preparatoire: [
+      "https://images.unsplash.com/photo-1547226706-af7e2c20bcea?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "https://images.unsplash.com/photo-1617056239820-8ce90ba48193?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    ],
+    elementaire: [
+      "https://images.unsplash.com/photo-1567057420215-0afa9aa9253a?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "https://images.unsplash.com/photo-1620969910995-4bbe4eaa32c1?q=80&w=1296&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    ],
+    moyen: [
+      "https://images.unsplash.com/photo-1567057419565-4349c49d8a04?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "https://images.unsplash.com/photo-1548102268-3d7dc56b01e1?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    ],
+  },
+  vieScolairePrimaire:
+    "https://images.unsplash.com/photo-1655720362145-2d8bc6718239?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   presentation: unsplash("photo-1498243691581-b145c3f54a5a", 1200),
   direction: unsplash("photo-1573497019440-1c04de6a68a1", 1200),
   valeurs: unsplash("photo-1544717305-2782549b5136", 1200),
@@ -56,10 +72,14 @@ export const images = {
     "/ecole/equipe": unsplash("photo-1522202176988-66273c2fd55f", 1800),
     "/ecole/partenaires": unsplash("photo-1552664730-d307ca884978", 1800),
     "/primaire": unsplash("photo-1509062522246-3755977927d7", 1800),
-    "/primaire/cycle-preparatoire": unsplash("photo-1509062522246-3755977927d7", 1800),
-    "/primaire/cycle-elementaire": unsplash("photo-1509062522246-3755977927d7", 1800),
-    "/primaire/cycle-moyen": unsplash("photo-1509062522246-3755977927d7", 1800),
-    "/primaire/vie-de-l-eleve": unsplash("photo-1509062522246-3755977927d7", 1800),
+    "/primaire/cycle-preparatoire":
+      "https://images.unsplash.com/photo-1547226706-af7e2c20bcea?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    "/primaire/cycle-elementaire":
+      "https://images.unsplash.com/photo-1567057420215-0afa9aa9253a?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    "/primaire/cycle-moyen":
+      "https://images.unsplash.com/photo-1567057419565-4349c49d8a04?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    "/primaire/vie-de-l-eleve":
+      "https://images.unsplash.com/photo-1655720362145-2d8bc6718239?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     "/secondaire": unsplash("photo-1523050854058-8df90110c9f1", 1800),
     "/secondaire/college": unsplash("photo-1523050854058-8df90110c9f1", 1800),
     "/secondaire/lycee": unsplash("photo-1523050854058-8df90110c9f1", 1800),
@@ -76,11 +96,6 @@ export const images = {
     "/admissions/frais": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
     "/admissions/calendrier": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
     "/admissions/faq": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
-    "/vie-scolaire": unsplash("photo-1522202176988-66273c2fd55f", 1800),
-    "/vie-scolaire/clubs": unsplash("photo-1522202176988-66273c2fd55f", 1800),
-    "/vie-scolaire/sport": unsplash("photo-1517649763962-0c623066013b", 1800),
-    "/vie-scolaire/bibliotheque": unsplash("photo-1524995997946-a1c2e315a42f", 1800),
-    "/vie-scolaire/reglement": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
     "/contact": unsplash("photo-1454165804606-c3d57bc86b40", 1800),
   },
 } as const;

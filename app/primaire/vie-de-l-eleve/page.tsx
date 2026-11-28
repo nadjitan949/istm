@@ -35,7 +35,7 @@ export default function VieElevePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.primaire}
+              src={images.vieScolairePrimaire}
               alt="Élèves du primaire pendant une activité"
               width={1000}
               height={720}
@@ -74,7 +74,7 @@ export default function VieElevePage() {
           <div className="overflow-hidden rounded-lg border border-istm-200 bg-white">
             <div className="relative h-44 overflow-hidden">
               <Image
-                src={images.primaire}
+                src="https://images.unsplash.com/photo-1510531704581-5b2870972060?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
                 alt="Encadrement des enfants et échange avec les parents"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

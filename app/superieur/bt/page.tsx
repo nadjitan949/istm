@@ -45,7 +45,7 @@ export default function BtPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.superieur}
+              src="https://plus.unsplash.com/premium_photo-1661964155525-fe70c0f7162b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Étudiants en BT à l'ISTM"
               width={1000}
               height={720}

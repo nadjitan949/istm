@@ -9,7 +9,6 @@ import {
   Wallet,
 } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Admissions - ISTM",
@@ -73,7 +72,7 @@ export default function AdmissionsPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src="https://images.unsplash.com/photo-1728743264705-776882fce48d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Accueil des futurs élèves et étudiants de l'ISTM"
               width={1000}
               height={720}

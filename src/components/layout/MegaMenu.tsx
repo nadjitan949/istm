@@ -17,12 +17,10 @@ import { images } from "@/data/images";
 import { MobileDrawer } from "./MobileDrawer";
 
 const LOGO_SRC = "/brand/istm-logo.jpeg";
-const formationMenuImage = images.header.formation;
-
 type Featured = { image: string; title: string; href: string; description: string };
 
 // Image affichée dans chaque sous-menu (clé = lien de la rubrique ou du cycle)
-// Les trois niveaux de formation gardent la même image au survol.
+// Chaque cycle de formation affiche un visuel Unsplash qui lui correspond.
 const FEATURED: Record<string, Featured> = {
   "/ecole": {
     image: images.header.ecole,
@@ -31,19 +29,19 @@ const FEATURED: Record<string, Featured> = {
     description: "Présentation, direction, valeurs et partenaires de l'établissement.",
   },
   "/primaire": {
-    image: formationMenuImage,
+    image: images.formationCycles.primaire,
     title: "Cycle primaire",
     href: "/primaire",
     description: "Des bases solides pour apprendre, grandir et s'épanouir dès les premières années.",
   },
   "/secondaire": {
-    image: formationMenuImage,
+    image: images.formationCycles.secondaire,
     title: "Collège & lycée",
     href: "/secondaire",
     description: "Préparer les examens, l'orientation et la poursuite d'études dans un cadre exigeant.",
   },
   "/superieur": {
-    image: formationMenuImage,
+    image: images.formationCycles.superieur,
     title: "Formations supérieures",
     href: "/superieur",
     description: "BTS, BT, Licence et Master pour construire un parcours professionnalisant.",
@@ -53,12 +51,6 @@ const FEATURED: Record<string, Featured> = {
     title: "Admissions & inscription",
     href: "/admissions",
     description: "Conditions, procédure, frais et calendrier d'inscription.",
-  },
-  "/vie-scolaire": {
-    image: images.header.vieScolaire,
-    title: "Vie scolaire",
-    href: "/vie-scolaire",
-    description: "Clubs, sport, bibliothèque et cadre de vie au quotidien.",
   },
 };
 

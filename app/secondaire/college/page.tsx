@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Award } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Collège - ISTM",
@@ -32,7 +31,7 @@ export default function CollegePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.secondaire}
+              src="https://images.unsplash.com/photo-1687794504223-8bdc02e25ef6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Élèves du collège de l'ISTM"
               width={1000}
               height={720}
@@ -67,7 +66,7 @@ export default function CollegePage() {
           <div className="overflow-hidden rounded-lg border border-istm-200 bg-white">
             <div className="relative h-44 overflow-hidden">
               <Image
-                src={images.secondaire}
+                src="https://images.unsplash.com/photo-1627423894921-c55a18a2de90?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
                 alt="Préparation au BEPC en classe de 3ème"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

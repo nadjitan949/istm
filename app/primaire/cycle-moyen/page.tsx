@@ -37,7 +37,7 @@ export default function CycleMoyenPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.primaire}
+              src={images.primaireCycles.moyen[0]}
               alt="Élèves du cycle moyen en classe"
               width={1000}
               height={720}
@@ -76,7 +76,7 @@ export default function CycleMoyenPage() {
           <div className="overflow-hidden rounded-lg border border-istm-200 bg-white">
             <div className="relative h-44 overflow-hidden">
               <Image
-                src={images.primaire}
+                src={images.primaireCycles.moyen[1]}
                 alt="Encadrement des élèves dans l'enceinte de l'école"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

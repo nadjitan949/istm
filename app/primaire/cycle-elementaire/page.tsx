@@ -42,7 +42,7 @@ export default function CycleElementairePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.primaire}
+              src={images.primaireCycles.elementaire[0]}
               alt="Élèves du cycle élémentaire en classe"
               width={1000}
               height={720}
@@ -81,7 +81,7 @@ export default function CycleElementairePage() {
           <div className="overflow-hidden rounded-lg border border-istm-200 bg-white">
             <div className="relative h-44 overflow-hidden">
               <Image
-                src={images.primaire}
+                src={images.primaireCycles.elementaire[1]}
                 alt="Échange entre enseignante, parents et élève"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

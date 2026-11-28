@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { PageTemplate } from "@/components/layout/PageTemplate";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Procédure d'inscription - ISTM",
@@ -57,7 +56,7 @@ export default function ProcedurePage() {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src="https://images.unsplash.com/photo-1620829813947-ef4246827355?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Service des admissions de l'ISTM"
               width={800}
               height={1000}

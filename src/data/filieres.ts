@@ -1,4 +1,3 @@
-import { images } from "@/data/images";
 
 export type Semestre = {
   numero: number;
@@ -36,7 +35,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Développer des applications de gestion", "Administrer des bases de données", "Concevoir des sites web dynamiques", "Assister à la transformation numérique"],
     debouches: ["Développeur d'applications de gestion", "Administrateur de bases de données", "Technicien support informatique", "Consultant SI junior"],
-    image: images.superieur,
+    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "reseaux-telecoms",
@@ -54,7 +53,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Installer et configurer des réseaux", "Administrer des serveurs", "Assurer la sécurité des infrastructures", "Dépaner les pannes réseau"],
     debouches: ["Administrateur réseau", "Technicien télécoms", "Ingénieur support réseau", "Responsable infrastructure"],
-    image: images.superieur,
+    image: "https://images.unsplash.com/photo-1594915440248-1e419eba6611?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "compta-gestion",
@@ -72,7 +71,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Tenir la comptabilité d'une entreprise", "Élaborer des états financiers", "Assurer la gestion budgétaire", "Préparer les déclarations fiscales"],
     debouches: ["Comptable", "Contrôleur de gestion", "Assistant comptable", "Gestionnaire de paie"],
-    image: images.presentation,
+    image: "https://plus.unsplash.com/premium_photo-1663040508857-1b46f49edde2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "banque-finance",
@@ -90,7 +89,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Gérer un portefeuille clients", "Conseiller sur les produits bancaires", "Analyser les risques financiers", "Assurer le suivi des opérations"],
     debouches: ["Conseiller clientèle", "Gestionnaire de compte", "Analyste de crédit", "Assistant de gestion de patrimoine"],
-    image: images.presentation,
+    image: "https://plus.unsplash.com/premium_photo-1679920897222-3c9e713bde36?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "marketing-communication",
@@ -110,7 +109,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Élaborer des stratégies marketing", "Concevoir des campagnes de communication", "Gérer les réseaux sociaux d'entreprise", "Animer des relations presse"],
     debouches: ["Chef de produit", "Responsable communication", "Chargé de marketing digital", "Attaché de presse"],
-    image: images.equipe,
+    image: "marketing-communication",
   },
   {
     id: "rh",
@@ -130,7 +129,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Recruter et intégrer des collaborateurs", "Gérer l'administration du personnel", "Conduire des entretiens d'évaluation", "Développer un plan de formation"],
     debouches: ["Chargé de recrutement", "Responsable RH", "Gestionnaire de paie", "Conseiller en formation"],
-    image: images.equipe,
+    image: "https://images.unsplash.com/photo-1573496130407-57329f01f769?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "logistique-transport",
@@ -150,7 +149,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Organiser le transport de marchandises", "Gérer des entrepôts et stocks", "Optimiser la chaîne d'approvisionnement", "Coordonner les flux logistiques"],
     debouches: ["Responsable logistique", "Gestionnaire de stock", "Affréteur", "Responsable supply chain"],
-    image: images.secondaire,
+    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "secretaire-direction",
@@ -168,7 +167,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Assister un dirigeant au quotidien", "Gérer l'agenda et les déplacements", "Rédiger des documents professionnels", "Organiser des réunions et événements"],
     debouches: ["Secrétaire de direction", "Assistante de direction", "Office manager", "Assistante administrative"],
-    image: images.presentation,
+    image: "https://images.unsplash.com/photo-1573496528298-f0e9d3c7ce55?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "master-management",
@@ -186,7 +185,7 @@ export const filieres: Filiere[] = [
     ],
     competences: ["Diriger une organisation ou un département", "Élaborer et piloter la stratégie", "Manager des équipes pluridisciplinaires", "Conduire le changement organisationnel"],
     debouches: ["Directeur d'entreprise", "Responsable de département", "Consultant en management", "Chef de projet senior"],
-    image: images.superieur,
+    image: "https://images.unsplash.com/photo-1707157281599-d155d1da5b4c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
 ];
 

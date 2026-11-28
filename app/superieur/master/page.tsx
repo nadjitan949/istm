@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Clock, Users } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { getFilieresByDiplome } from "@/data/filieres";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Master - ISTM",
@@ -50,7 +49,7 @@ export default function MasterPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.superieur}
+              src="https://plus.unsplash.com/premium_photo-1683135221637-aa707fd349b6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Étudiants en Master à l'ISTM"
               width={1000}
               height={720}

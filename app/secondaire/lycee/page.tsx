@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Award } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Lycée - ISTM",
@@ -37,7 +36,7 @@ export default function LyceePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.secondaire}
+              src="https://images.unsplash.com/photo-1632215863479-201029d93143?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Lycéens de l'ISTM"
               width={1000}
               height={720}
@@ -77,7 +76,7 @@ export default function LyceePage() {
           <div className="overflow-hidden rounded-lg border border-istm-200 bg-white">
             <div className="relative h-44 overflow-hidden">
               <Image
-                src={images.secondaire}
+                src="https://images.unsplash.com/photo-1627423893729-3a79f48ff473?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
                 alt="Préparation au Baccalauréat, examen blanc"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

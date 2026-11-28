@@ -10,7 +10,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Calendrier - ISTM",
@@ -51,7 +50,7 @@ export default function CalendrierPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src="https://images.unsplash.com/photo-1633526543814-9718c8922b7a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Campus de l'ISTM"
               width={1000}
               height={720}

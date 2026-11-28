@@ -38,7 +38,7 @@ export default function OrientationPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.secondaire}
+              src="https://images.unsplash.com/photo-1653669485641-8582ad808121?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Entretien d'orientation avec un lycéen"
               width={1000}
               height={720}
@@ -79,7 +79,7 @@ export default function OrientationPage() {
           <div className="overflow-hidden rounded-lg border border-istm-200 bg-white">
             <div className="relative h-44 overflow-hidden">
               <Image
-                src={images.superieur}
+                src="https://plus.unsplash.com/premium_photo-1714211557308-f12b05304562?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
                 alt="Étudiants de l'ISTM en filière supérieure"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Award, BookOpenCheck, ClipboardCheck, GraduationCap, Lightbulb } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Préparation aux examens - ISTM",
@@ -20,7 +19,7 @@ const examens = [
     description:
       "Révision des programmes de 3ème, annales corrigées, simulations d'épreuves.",
     icon: Award,
-    image: images.secondaire,
+    image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     alt: "Élèves de 3ème en préparation au BEPC",
   },
   {
@@ -28,7 +27,7 @@ const examens = [
     description:
       "Préparation aux épreuves écrites et orales, méthodologie, gestion du stress et planning de révision.",
     icon: GraduationCap,
-    image: images.secondaire,
+    image: "https://images.unsplash.com/photo-1627423893729-3a79f48ff473?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     alt: "Lycéens en préparation au Baccalauréat",
   },
 ];
@@ -70,7 +69,7 @@ export default function PreparationExamensPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.secondaire}
+              src="https://images.unsplash.com/photo-1620831468075-db24ca183258?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Séance de préparation aux examens"
               width={1000}
               height={720}

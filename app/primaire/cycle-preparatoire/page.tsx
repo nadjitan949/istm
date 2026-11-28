@@ -42,7 +42,7 @@ export default function CyclePreparatoirePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.primaire}
+              src={images.primaireCycles.preparatoire[0]}
               alt="Élèves du cycle préparatoire en classe"
               width={1000}
               height={720}
@@ -81,7 +81,7 @@ export default function CyclePreparatoirePage() {
           <div className="overflow-hidden rounded-lg border border-istm-200 bg-white">
             <div className="relative h-44 overflow-hidden">
               <Image
-                src={images.primaire}
+                src={images.primaireCycles.preparatoire[1]}
                 alt="Activités d'éveil : dessin, chant et jeux éducatifs"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

@@ -4,7 +4,6 @@ import { ArrowRight, MessageCircleQuestion } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { Accordion } from "@/components/ui/Accordion";
 import { faq } from "@/data/faq";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "FAQ - ISTM",
@@ -36,7 +35,7 @@ export default function FaqPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Service des admissions de l'ISTM"
               width={800}
               height={560}

@@ -13,21 +13,21 @@ const conditions = [
     title: "Primaire",
     desc: "Ouvert à tous les enfants en âge scolaire.",
     icon: School,
-    image: images.primaire,
+    image: images.formationCycles.primaire,
     alt: "Enfants du primaire à l'ISTM",
   },
   {
     title: "Secondaire",
     desc: "Admission sur dossier et entretien.",
     icon: GraduationCap,
-    image: images.secondaire,
+    image: images.formationCycles.secondaire,
     alt: "Élèves du secondaire à l'ISTM",
   },
   {
     title: "Supérieur",
     desc: "Baccalauréat requis (ou équivalent selon le diplôme).",
     icon: Briefcase,
-    image: images.superieur,
+    image: images.formationCycles.superieur,
     alt: "Étudiants du supérieur à l'ISTM",
   },
 ];
@@ -52,7 +52,7 @@ export default function ConditionsPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.presentation}
+              src="https://images.unsplash.com/photo-1559998653-8d54ecd591c9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Accueil des futurs élèves à l'ISTM"
               width={1000}
               height={720}

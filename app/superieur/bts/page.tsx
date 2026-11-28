@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, Clock, GraduationCap } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { getFilieresByDiplome } from "@/data/filieres";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "BTS - ISTM",
@@ -43,7 +42,7 @@ export default function BtsPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.superieur}
+              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Étudiants en BTS à l'ISTM"
               width={1000}
               height={720}

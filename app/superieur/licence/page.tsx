@@ -45,7 +45,7 @@ export default function LicencePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.superieur}
+              src="https://images.unsplash.com/photo-1631131426242-0abfa7f209c2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Étudiants en Licence à l'ISTM"
               width={1000}
               height={720}
