@@ -40,7 +40,7 @@ export default function SuperieurPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.superieur}
+              src={images.formationCycles.superieur}
               alt="Étudiants du supérieur à l'ISTM"
               width={1000}
               height={720}

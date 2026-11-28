@@ -36,6 +36,14 @@ export const images = {
   primaire: unsplash("photo-1509062522246-3755977927d7", 1200),
   secondaire: unsplash("photo-1523050854058-8df90110c9f1", 1200),
   superieur: unsplash("photo-1541339907198-e08854caf25c", 1200),
+  formationCycles: {
+    primaire:
+      "https://images.unsplash.com/photo-1548102249-acdce64fffbd?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    secondaire:
+      "https://images.unsplash.com/photo-1632215861513-130b66fe97f4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    superieur:
+      "https://plus.unsplash.com/premium_photo-1714211554582-8cfd9d261452?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  },
   presentation: unsplash("photo-1498243691581-b145c3f54a5a", 1200),
   direction: unsplash("photo-1573497019440-1c04de6a68a1", 1200),
   valeurs: unsplash("photo-1544717305-2782549b5136", 1200),

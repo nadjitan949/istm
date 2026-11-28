@@ -15,24 +15,18 @@ const cycles = [
     href: "/primaire/cycle-preparatoire",
     desc: "Fondations des apprentissages",
     icon: Sprout,
-    image: images.primaire,
-    alt: "Élèves du cycle préparatoire",
   },
   {
     title: "CE1 - CE2",
     href: "/primaire/cycle-elementaire",
     desc: "Consolidation des savoirs de base",
     icon: Shapes,
-    image: images.primaire,
-    alt: "Élèves du cycle élémentaire",
   },
   {
     title: "CM1 - CM2",
     href: "/primaire/cycle-moyen",
     desc: "Préparation au secondaire",
     icon: BookOpenCheck,
-    image: images.primaire,
-    alt: "Élèves du cycle moyen",
   },
 ];
 
@@ -60,7 +54,7 @@ export default function PrimairePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.primaire}
+              src={images.formationCycles.primaire}
               alt="Élèves du primaire à l'ISTM"
               width={1000}
               height={720}
@@ -91,25 +85,16 @@ export default function PrimairePage() {
                 >
                   <span className="absolute inset-x-0 top-0 z-10 h-0.5 origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
 
-                  <div className="relative h-40 overflow-hidden">
-                    <Image
-                      src={c.image}
-                      alt={c.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-istm-900/60 via-transparent to-transparent" />
-                    <span className="absolute bottom-3 left-5 text-sm font-medium tabular-nums text-white">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-
                   <div className="flex flex-1 flex-col p-6">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-istm-100 text-istm-600 transition-colors duration-200 group-hover:bg-istm-600 group-hover:text-white">
-                      <Icon className="h-5 w-5" />
+                    <div className="flex items-start justify-between">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-md bg-istm-100 text-istm-600 transition-colors duration-200 group-hover:bg-istm-600 group-hover:text-white">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-sm font-medium tabular-nums text-istm-400">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
                     </div>
-                    <h3 className="mt-4 text-lg font-semibold text-istm-900">{c.title}</h3>
+                    <h3 className="mt-5 text-2xl font-semibold text-istm-900">{c.title}</h3>
                     <p className="mt-2 flex-1 text-sm leading-6 text-istm-600">{c.desc}</p>
 
                     <div className="mt-5 flex items-center justify-between border-t border-istm-100 pt-4 text-sm font-medium text-istm-700">

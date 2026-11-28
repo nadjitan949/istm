@@ -12,9 +12,9 @@ export const metadata = {
 };
 
 function getCycleImage(href: string) {
-  if (href.includes("primaire")) return images.primaire;
-  if (href.includes("secondaire")) return images.secondaire;
-  if (href.includes("superieur")) return images.superieur;
+  if (href.includes("primaire")) return images.formationCycles.primaire;
+  if (href.includes("secondaire")) return images.formationCycles.secondaire;
+  if (href.includes("superieur")) return images.formationCycles.superieur;
   return images.presentation;
 }
 

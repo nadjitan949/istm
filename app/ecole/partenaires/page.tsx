@@ -2,7 +2,6 @@ import Image from "next/image";
 import { BriefcaseBusiness, Building2, Handshake, Laptop, Rocket, Users } from "lucide-react";
 import { PageTemplate } from "@/components/layout/PageTemplate";
 import { site } from "@/data/site";
-import { images } from "@/data/images";
 
 export const metadata = {
   title: "Partenaires - ISTM",
@@ -49,7 +48,7 @@ export default function PartenairesPage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.superieur}
+              src="https://images.unsplash.com/photo-1693064972579-0c1c85c636e8?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="Étudiants de l'ISTM en contexte professionnel"
               width={1000}
               height={720}

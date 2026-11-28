@@ -13,21 +13,21 @@ const members = [
     role: "Direction",
     desc: "Pilotage stratégique de l'établissement.",
     icon: Landmark,
-    image: images.presentation,
+    image: "https://images.unsplash.com/photo-1762265591492-1454ae17f31a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     alt: "La direction de l'ISTM",
   },
   {
     role: "Enseignants",
     desc: "Professeurs qualifiés et expérimentés.",
     icon: BookOpen,
-    image: images.atouts,
+    image: "https://images.unsplash.com/photo-1744809482817-9a9d4fc280af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     alt: "Enseignants de l'ISTM en séance de travail",
   },
   {
     role: "Administration",
     desc: "Accueil, scolarité et services aux étudiants.",
     icon: ClipboardList,
-    image: images.superieur,
+    image: "https://images.unsplash.com/photo-1758640920659-0bb864175983?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     alt: "Le personnel administratif de l'ISTM",
   },
 ];
@@ -52,7 +52,7 @@ export default function EquipePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.atouts}
+              src="https://images.unsplash.com/photo-1614317354806-860a3bf79069?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
               alt="L'équipe de l'ISTM"
               width={1000}
               height={640}

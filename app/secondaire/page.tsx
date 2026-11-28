@@ -15,16 +15,12 @@ const niveaux = [
     href: "/secondaire/college",
     description: "De la 6ème à la 3ème. Préparation au BEPC.",
     icon: BookMarked,
-    image: images.secondaire,
-    alt: "Élèves du collège de l'ISTM",
   },
   {
     title: "Lycée",
     href: "/secondaire/lycee",
     description: "Séries F, G1 et G2. Préparation au Baccalauréat.",
     icon: GraduationCap,
-    image: images.secondaire,
-    alt: "Lycéens de l'ISTM",
   },
 ];
 
@@ -51,7 +47,7 @@ export default function SecondairePage() {
 
           <div className="relative overflow-hidden rounded-lg border border-istm-200">
             <Image
-              src={images.secondaire}
+              src={images.formationCycles.secondaire}
               alt="Élèves du secondaire à l'ISTM"
               width={1000}
               height={720}
@@ -63,46 +59,44 @@ export default function SecondairePage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {niveaux.map((n, index) => {
-            const Icon = n.icon;
-            return (
-              <Link
-                key={n.href}
-                href={n.href}
-                className="group relative flex flex-col overflow-hidden rounded-lg border border-istm-200 bg-white transition-colors duration-200 hover:border-istm-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-600 focus-visible:ring-offset-2"
-              >
-                <span className="absolute inset-x-0 top-0 z-10 h-0.5 origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
+        <div>
+          <div className="mb-8 flex items-end justify-between gap-6 border-b border-istm-200 pb-5">
+            <h2 className="text-xl font-semibold text-istm-900">Nos niveaux</h2>
+            <span className="text-sm font-medium tabular-nums text-istm-400">
+              {String(niveaux.length).padStart(2, "0")} niveaux
+            </span>
+          </div>
 
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={n.image}
-                    alt={n.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-istm-900/60 via-transparent to-transparent" />
-                  <span className="absolute bottom-3 left-5 text-sm font-medium tabular-nums text-white">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {niveaux.map((n, index) => {
+              const Icon = n.icon;
+              return (
+                <Link
+                  key={n.href}
+                  href={n.href}
+                  className="group relative flex flex-col overflow-hidden rounded-lg border border-istm-200 bg-white p-6 transition-colors duration-200 hover:border-istm-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-istm-600 focus-visible:ring-offset-2"
+                >
+                  <span className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-red-600 transition-transform duration-300 group-hover:scale-x-100" />
 
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-istm-100 text-istm-600 transition-colors duration-200 group-hover:bg-istm-600 group-hover:text-white">
-                    <Icon className="h-5 w-5" />
+                  <div className="flex items-start justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-md bg-istm-100 text-istm-600 transition-colors duration-200 group-hover:bg-istm-600 group-hover:text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="text-sm font-medium tabular-nums text-istm-400">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
-                  <h3 className="mt-4 text-lg font-semibold text-istm-900">{n.title}</h3>
+                  <h3 className="mt-5 text-2xl font-semibold text-istm-900">{n.title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-6 text-istm-600">{n.description}</p>
 
                   <div className="mt-5 flex items-center justify-between border-t border-istm-100 pt-4 text-sm font-medium text-istm-700">
                     <span>Découvrir</span>
                     <ArrowRight className="h-4 w-4 text-istm-400 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-red-600" />
                   </div>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </PageTemplate>

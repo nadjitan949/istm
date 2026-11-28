@@ -11,13 +11,13 @@ const blocks = [
   {
     title: "Notre histoire",
     text: "Depuis plus de 15 ans, l'ISTM forme des générations d'étudiants et les prépare à réussir dans leur vie professionnelle.",
-    image: images.atouts,
+    image: "https://images.unsplash.com/photo-1519406596751-0a3ccc4937fe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     alt: "Séance de travail encadrée à l'ISTM",
   },
   {
     title: "Notre identité",
     text: "Un établissement engagé pour la réussite de chaque apprenant, dans un cadre bienveillant et exigeant.",
-    image: images.superieur,
+    image: "https://images.unsplash.com/photo-1536337005238-94b997371b40?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     alt: "Étudiants de l'ISTM",
   },
 ];
